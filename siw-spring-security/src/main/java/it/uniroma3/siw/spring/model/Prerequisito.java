@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Prerequisiti {
+public class Prerequisito {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
