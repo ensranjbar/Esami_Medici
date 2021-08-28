@@ -39,7 +39,7 @@ public class MedicoService {
 
 	@Transactional
 	public boolean alreadyExists(Medico medico) {
-		List<Medico> medici = this.medicoRepository.findByNome(medico.getNome());
+		List<Medico> medici = this.medicoRepository.findByNomeAndCognome(medico.getNome(),medico.getCognome());
 		if (medici.size() > 0)
 			return true;
 		else 
