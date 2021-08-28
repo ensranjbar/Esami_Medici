@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -17,4 +18,7 @@ public class Prerequisito {
 	private String nome;
 	private String valore;
 
+	@OneToOne
+	private Tipologia tipologia;
+	
 }
