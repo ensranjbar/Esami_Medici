@@ -12,6 +12,4 @@ public interface PrerequisitoRepository extends CrudRepository<Prerequisito, Lon
 
 	public List<Prerequisito> findByNomeAndValore(String nome, String valore);
 
-	public List<Prerequisito> findByNomeOrValore(String nome, String valore);
-
 }

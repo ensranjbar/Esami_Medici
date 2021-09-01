@@ -12,6 +12,4 @@ public interface MedicoRepository extends CrudRepository<Medico, Long> {
 
 	public List<Medico> findByNomeAndCognome(String nome, String cognome);
 
-	public List<Medico> findByNomeOrCognome(String nome, String cognome);
-
 }

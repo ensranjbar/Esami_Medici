@@ -45,4 +45,9 @@ public class MedicoService {
 		else 
 			return false;
 	}
+	
+	@Transactional
+	public CredentialsService getCredentialsService() {
+		return credentialsService;
+	}
 }

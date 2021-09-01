@@ -12,6 +12,5 @@ public interface TipologiaRepository  extends CrudRepository<Tipologia, Long> {
 
 	public List<Tipologia> findByNomeAndCosto(String nome, String costo);
 
-	public List<Tipologia> findByNomeOrCosto(String nome, String costo);
 
 }

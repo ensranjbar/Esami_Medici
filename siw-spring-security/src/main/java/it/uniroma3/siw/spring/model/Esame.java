@@ -1,14 +1,17 @@
 package it.uniroma3.siw.spring.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-import javax.persistence.OneToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,25 +25,23 @@ public class Esame {
 	private Long id;
 	
 	//data orarioPrenotazione
-	@Column(nullable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	private LocalDate dataOrarioP;
+	private LocalDate dataPrenotazione;
 
 	//dataOrarioEsame
-	@Column(nullable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	private LocalDate dataOrarioE;
+	private LocalDate dataEsame;
 
-	@OneToOne
-	private Risultato risultato;
+	@OneToMany(mappedBy="esame",cascade=CascadeType.ALL)
+	private List <Risultato> risultati;
 	
-	@OneToOne
-	private User user;
+	@ManyToOne
+	private User paziente;
 	
-	@OneToOne
+	@ManyToOne
 	private Tipologia tipologia;
 	
-	@OneToOne
+	@ManyToOne
 	private Medico medico;
 	
 
