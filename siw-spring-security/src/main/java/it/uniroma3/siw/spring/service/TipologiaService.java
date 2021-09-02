@@ -17,6 +17,8 @@ public class TipologiaService {
 
 	@Autowired
 	private TipologiaRepository tipologiaRepository;
+	@Autowired
+	private CredentialsService credentialsService;
 
 	@Transactional
 	public Tipologia inserisci(Tipologia tipologia) {
@@ -44,5 +46,10 @@ public class TipologiaService {
 			return true;
 		else
 			return false;
+	}
+	
+	@Transactional
+	public CredentialsService getCredentialsService() {
+		return credentialsService;
 	}
 }

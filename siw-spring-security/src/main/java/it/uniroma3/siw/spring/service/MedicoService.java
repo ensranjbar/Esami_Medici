@@ -17,6 +17,8 @@ public class MedicoService {
 	
 	@Autowired
 	private MedicoRepository medicoRepository; 
+	@Autowired
+	private CredentialsService credentialsService;
 	
 	@Transactional
 	public Medico inserisci(Medico medico) {

@@ -16,6 +16,9 @@ public class PrerequisitoService {
 	
 	@Autowired
 	private PrerequisitoRepository prerequisitoRepository; 
+	@Autowired
+	private CredentialsService credentialsService;
+	
 	
 	@Transactional
 	public Prerequisito inserisci(Prerequisito prerequisito) {
@@ -43,5 +46,9 @@ public class PrerequisitoService {
 			return true;
 		else 
 			return false;
+	}
+	@Transactional
+	public CredentialsService getCredentialsService() {
+		return credentialsService;
 	}
 }
