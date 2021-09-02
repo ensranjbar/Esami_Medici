@@ -38,4 +38,9 @@ public class CredentialsService {
         return this.credentialsRepository.save(credentials);
     }
 
+	public Object getRoleAuthenticated() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
