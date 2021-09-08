@@ -1,14 +1,24 @@
+  
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="fragments/base.html :: headerfiles(title='SIW')"> </head>
+	<head th:replace="fragments/base.html :: headerfiles(title='userHome')"> </head>
 <body>
 	<header th:replace="fragments/base.html :: intestazione"></header>
     <div>
-    	<h4 th:text="#{header.menuUtente}">Menu</h4>
-		<div>
-			<a href="prodotto" th:href="@{/prodotto}">Elenco prodotti</a>
+   
+		<div class="highlight">
+			<a href="esame" th:href="@{/esame}">Elenco Esami Medici</a>
    		</div>
-   		<div>
+   		<div class="highlight">
+			<a href="medico" th:href="@{/medico}">Elenco Medici</a>
+   		</div>
+   		<div class="highlight">
+			<a href="tipologia" th:href="@{/tipologia}">Elenco Tipologie degli Esami</a>
+   		</div>
+   		<div class="highlight">
+			<a href="paziente" th:href="@{/paziente}">Elenco dei pazienti</a>
+   		</div>
+   		<div class="highlight">
 			<a th:href="@{/logout}">Logout</a>
    		</div>
    		

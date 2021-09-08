@@ -24,6 +24,8 @@ public class Tipologia {
 	
 	@Column(nullable=false)
 	private String descrizione;
+	
+	@Column(nullable=false)
 	private float costo; 
 	
 	

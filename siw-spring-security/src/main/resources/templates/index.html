@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="fragments/base.html :: headerfiles(title='SIW')"> </head>
+<head
+	th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.index})"></head>
 <body>
-	<header th:replace="fragments/base.html :: intestazione"></header>
-    <div>
-    	<h4 th:text="#{header.index}">Welcome Page</h4>
-		<div>
-			<a th:href="@{/login}" th:text="#{index.login}">Accedi</a>
-   		</div>
-		<div>
-			<a th:href="@{/register}" th:text="#{index.register}">Registrati</a>
-   		</div>
-    </div>
-    <footer th:replace="fragments/base.html :: fondo(home='/')"></footer>
+
+	<header th:replace="fragments/base.html :: intestazione"> </header>
+	<div>
+		<a th:href="@{/login}"><span class="highlight">Accedi</span></a>
+	</div>
+	<div>
+		<a th:href="@{/register}"><span class="highlight">Registrati</span></a>
+	</div>
+
+	<div class="containerFlex">
+		<div class="item">
+			<a href="/esame/{id}"><img src="" alt="" height="250" width="450"></a>
+		</div>
+		<div class="item">
+			<a href="/esame/{id}"><img src="" alt="" height="250" width="450"></a>
+		</div>
+		<div class="item">
+			<a href="/esame/{id}"><img src="" alt="" height="250" width="450"></a>
+		</div>
+		<div class="item">
+			<a href="/esame/{id}"><img src="" alt="" height="250" width="450"></a>
+		</div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
 </body>
 </html>

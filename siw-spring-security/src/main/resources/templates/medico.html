@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{pageTitle.artista})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    <div>
+    	<h4  class="t1"></h4>
+    	
+    	<div class="t2" th:if="${artista}" th:object="${artista}">
+			<span th:text="*{nome}">qui-va-nome</span>
+			<span th:text="*{cognome}">qui-va-cognome</span>
+			<span th:text="*{specializzazione}">qui-va-specializzazione</span>
+	
+   		</div>
+   		<ul>
+               <li th:each="esame : ${medico.esame}">
+                <a href="esame.html" 
+                   th:href="@{'/esame' + '/' + ${esame.id}}"
+                   th:text="${esame.tipologia}"> </a>
+                   <div><br><br></div>
+               </li>
+           </ul>
+    	<div th:unless="${medico}">Non esiste</div>
+    	<div th:if="${#authorization.expression('isAuthenticated()')}"> 
+        <div>
+            <form action="#" th:object="${medico}" th:action="@{/admin/medico/{id}(id=${medico.id})}">
+            <input type="hidden" name="_method" value="delete">
+              <button type="submit" id="submitButton">Aggiorna i dati</button>
+            </form>
+             </div> 
+            <br>
+             <div>
+            <form action="#" th:object="${medico}" th:action="@{/admin/deleteMedico/{id}(id=${medico.id})}" th:method="post" >
+            <input type="hidden" name="_method" value="delete">
+              <button type="submit" id="submitButton">Cancella</button>
+            </form>
+             </div>
+             </div>
+             <div th:unless="${#authorization.expression('isAuthenticated()')}"> </div>
+     </div>
+    <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

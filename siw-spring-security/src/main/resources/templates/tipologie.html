@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{header.tipologia})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div>
+    	<h4 class="t1">Lista di tipologie </h4>
+		<ul>
+			<li class="t1" th:each="tipologia : ${tipologie}">
+				<a href="tipologia.html" 
+				   th:href="@{'/tipologia' + '/' + ${tipologia.id}}" 
+				   th:text="|${tipologia.nome} ${curatore.costo}|">qui-va-nome-costo</a>
+			</li>
+		</ul>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

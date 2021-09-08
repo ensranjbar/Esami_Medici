@@ -3,10 +3,10 @@
 <head th:fragment="headerfiles(title)">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title th:text="${title}">MUSEO MNC</title>
+<title th:text="${title}">Clinica MNC</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/2styles.css">
 </head>
 <body>
 	<header th:fragment="intestazione">
@@ -15,9 +15,8 @@
 			<ul class="nav__links">
 				<li><a href="index" th:href="@{/index}">Home</a></li>
 				<li><a href="esami" th:href="@{/esame}">Esami</a></li>
-				<li><a href="meidci" th:href="@{/medico}">Medici</a></li>
-				<li><a href="tipologie" th:href="@{/tipologia}">Tipologie</a></li>
-				
+				<li><a href="medici" th:href="@{/medico}">medici</a></li>
+				<li><a href="tipologie" th:href="@{/tipologia}">tipologie</a></li>
 			</ul>
 		</nav>
 
@@ -31,12 +30,6 @@
 	</aside>
 	<div class="another">This is another sidebar</div>
 
-	<footer th:fragment="fondo"></footer>
-<!-- 	<div class="footer">  -->
-<!-- 	<ul > -->
-<!-- 	<li class="footer_links"><a href="index" th:href="@{/index}">Home</a></li> -->
-<!-- 	<li class="footer_links"><a href="immagini" th:href="@{/immagine}">immagini</a></li> -->
-<!-- 	</ul> -->
-<!-- 	</div> -->
+	<footer th:fragment="fondo"> </footer>
 </body>
 </html>
