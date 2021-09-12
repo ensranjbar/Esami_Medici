@@ -24,6 +24,7 @@ public class Esame {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	private String nome;
 	//data orarioPrenotazione
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDate dataPrenotazione;

@@ -12,18 +12,18 @@
 			<span th:text="*{costo}">qui-va-costo</span>
    		</div>
    		<ul>
-               <li th:each="tipologia : ${tipologia.esami}">
+               <li th:each="esame : ${tipologia.esami}">
                 <a href="tipologia.html" 
-                   th:href="@{'/tipologia' + '/' + ${tipologia.id}}"
-                   th:text="${tipologia.nome}"> </a>
+                   th:href="@{'/esame' + '/' + ${esame.id}}"
+                   th:text="${esame.nome}"> </a>
                    <div><br><br></div>
                </li>
            </ul>
            <ul>
-               <li th:each="tipologia : ${tipologia.prerequisiti}">
-                <a href="tipologia.html" 
-                   th:href="@{'/tipologia' + '/' + ${tipologia.id}}"
-                   th:text="${tipologia.nome}"> </a>
+               <li th:each="prerequisito : ${tipologia.prerequisiti}">
+                <a href="prerequisito.html" 
+                   th:href="@{'/prerequisito' + '/' + ${prerequisito.id}}"
+                   th:text="${prerequisito.nome}"> </a>
                    <div><br><br></div>
                </li>
            </ul>

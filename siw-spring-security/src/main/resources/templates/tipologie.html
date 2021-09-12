@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{header.tipologia})"> </head>
+<head th:replace="fragments/base.html :: headerfiles(title=#{header.tipologie})"> </head>
 <body>
 	<header th:replace="fragments/base.html :: intestazione"></header>
 	<div>
@@ -9,7 +9,7 @@
 			<li class="t1" th:each="tipologia : ${tipologie}">
 				<a href="tipologia.html" 
 				   th:href="@{'/tipologia' + '/' + ${tipologia.id}}" 
-				   th:text="|${tipologia.nome} ${curatore.costo}|">qui-va-nome-costo</a>
+				   th:text="|${tipologia.nome} ${tipologia.costo}|">qui-va-nome-costo</a>
 			</li>
 		</ul>
 	</div>
