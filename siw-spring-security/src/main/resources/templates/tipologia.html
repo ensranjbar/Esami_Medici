@@ -11,14 +11,14 @@
 			<span th:text="*{descrizione}">qui-va-descrizione</span>
 			<span th:text="*{costo}">qui-va-costo</span>
    		</div>
-   		<ul>
+   	<!--	<ul>
                <li th:each="esame : ${tipologia.esami}">
                 <a href="tipologia.html" 
                    th:href="@{'/esame' + '/' + ${esame.id}}"
                    th:text="${esame.nome}"> </a>
                    <div><br><br></div>
                </li>
-           </ul>
+           </ul> -->
            <ul>
                <li th:each="prerequisito : ${tipologia.prerequisiti}">
                 <a href="prerequisito.html" 

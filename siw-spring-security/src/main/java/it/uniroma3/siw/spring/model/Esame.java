@@ -26,11 +26,11 @@ public class Esame {
 	
 	private String nome;
 	//data orarioPrenotazione
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = "yyyy-MM-dd") // HH:mm:ss
 	private LocalDate dataPrenotazione;
 
 	//dataOrarioEsame
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = "yyyy-MM-dd") // HH:mm:ss
 	private LocalDate dataEsame;
 
 	@OneToMany(mappedBy="esame",cascade=CascadeType.ALL)

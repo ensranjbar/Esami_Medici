@@ -6,7 +6,7 @@
 	<div>
     	<h4 class="t1">Lista di Esami</h4>
 		<ul>
-			<li class="t1" th:each="esame : ${opere}">
+			<li class="t1" th:each="esame : ${esami}">
 				<a href="esame.html"
 				   th:href="@{'/esame' + '/' + ${esame.id}}" 
 				   th:text="|${esame.dataEsame} ${esame.dataPrenotazione} ${esame.tipologia}">qui-vanno-date-tipologia</a>
