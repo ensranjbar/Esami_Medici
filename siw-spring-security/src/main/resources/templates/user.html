@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{pageTitle.medico})"> </head>
+	<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{pageTitle.user})"> </head>
 <body>
 	<header th:replace="fragments/base.html :: intestazione"></header>
     <div>
     	<h4  class="t1"></h4>
     	
-    	<div class="t2" th:if="${medico}" th:object="${medico}">
+    	<div class="t2" th:if="${user}" th:object="${user}">
 			<span th:text="*{nome}">qui-va-nome</span>
 			<span th:text="*{cognome}">qui-va-cognome</span>
-			<span th:text="*{specializzazione}">qui-va-specializzazione</span>
-	
    		</div>
    		<ul>
-               <li th:each="esame : ${medico.esami}">
+               <li th:each="esame : ${user.esami}">
                 <a href="esame.html" 
                    th:href="@{'/esame' + '/' + ${esame.id}}"
-                   th:text="${esame.tipologia}"> </a>
+                   th:text="${esame.user}"> </a>
                    <div><br><br></div>
                </li>
            </ul>
-    	<div th:unless="${medico}">Non esiste</div>
+    	<div th:unless="${user}">Non esiste</div>
     	<div th:if="${#authorization.expression('isAuthenticated()')}"> 
         <div>
-            <form action="#" th:object="${medico}" th:action="@{/admin/medico/{id}(id=${medico.id})}">
+            <form action="#" th:object="${user}" th:action="@{/admin/user/{id}(id=${user.id})}">
             <input type="hidden" name="_method" value="delete">
               <button type="submit" id="submitButton">Aggiorna i dati</button>
             </form>
              </div> 
             <br>
              <div>
-            <form action="#" th:object="${medico}" th:action="@{/admin/deleteMedico/{id}(id=${medico.id})}" th:method="post" >
+            <form action="#" th:object="${user}" th:action="@{/admin/deleteUser/{id}(id=${user.id})}" th:method="post" >
             <input type="hidden" name="_method" value="delete">
               <button type="submit" id="submitButton">Cancella</button>
             </form>

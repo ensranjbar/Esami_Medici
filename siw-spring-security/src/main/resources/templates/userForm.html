@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{header.medici})"> </head>
+<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{header.users})"> </head>
 <body>
 	<header th:replace="fragments/base.html :: intestazione"></header>
 	<div class="container">
 			<div class="myform">
 	<div>
-		<h4 class="t1">Inserisci i dati di un medico</h4>
+		<h4 class="t1">Inserisci i dati di un paziente</h4>
 	</div>
-	<form th:action="@{/admin/medico}" method="POST" th:object="${medico}">
+	<form th:action="@{/admin/user}" method="POST" th:object="${user}">
 		<div th:if="${#fields.hasGlobalErrors()}">
   			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 		</div>		
@@ -22,11 +22,6 @@
 				<span>Cognome:</span>
 				<span><input type="text" th:field="*{cognome}" /></span>
 				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
-			</div>
-			<div>
-				<span>Specializzazione:</span>
-				<span><input type="text" th:field="*{specializzazione}" /></span>
-				<span th:if="${#fields.hasErrors('specializzazione')}" th:errors="*{specializzazione}"></span>
 			</div>
 			
 			<div>
