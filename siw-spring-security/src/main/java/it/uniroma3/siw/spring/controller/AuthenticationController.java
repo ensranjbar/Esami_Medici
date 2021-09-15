@@ -28,7 +28,7 @@ public class AuthenticationController {
 	@Autowired
 	private CredentialsValidator credentialsValidator;
 	
-	@RequestMapping(value = "/register", method = RequestMethod.GET) 
+	@RequestMapping(value = "/admin/register", method = RequestMethod.GET) 
 	public String showRegisterForm (Model model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("credentials", new Credentials());
@@ -56,7 +56,7 @@ public class AuthenticationController {
         return "home";
     }
 	
-    @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/admin/register" }, method = RequestMethod.POST)
     public String registerUser(@ModelAttribute("user") User user,
                  BindingResult userBindingResult,
                  @ModelAttribute("credentials") Credentials credentials,
