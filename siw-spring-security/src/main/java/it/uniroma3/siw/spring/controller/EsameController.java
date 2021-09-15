@@ -80,4 +80,12 @@ public class EsameController {
         }
         return "esameForm";
     }
+   
+    @RequestMapping(value= "/admin/deleteEsame/{id}", method = RequestMethod.POST)
+    public String deleteEsame(@PathVariable("id") Long id) {
+    	this.esameService.deleteEsameById(id);
+    	return "esami";
+    }
+  
+
 }

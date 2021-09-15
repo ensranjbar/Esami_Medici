@@ -54,4 +54,11 @@ public class TipologiaController {
         }
         return "tipologiaForm";
     }
+       
+    @RequestMapping(value= "/admin/deleteTipologia/{id}", method = RequestMethod.POST)
+    public String deleteTipologia(@PathVariable("id") Long id) {
+    	this.tipologiaService.deleteTipologiaById(id);
+    	return "tipologie";
+    }
+  
 }

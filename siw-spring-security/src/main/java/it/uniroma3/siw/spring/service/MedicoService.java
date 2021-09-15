@@ -52,4 +52,11 @@ public class MedicoService {
 	public CredentialsService getCredentialsService() {
 		return credentialsService;
 	}
+
+	public void deleteMedicoById(Long id) {
+		medicoRepository.deleteById(id);
+	}
+	
+
+
 }

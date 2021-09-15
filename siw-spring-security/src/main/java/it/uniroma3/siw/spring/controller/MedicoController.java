@@ -54,4 +54,11 @@ public class MedicoController {
 		}
 		return "medicoForm";
 	}
+	
+    @RequestMapping(value= "/admin/deleteMedico/{id}", method = RequestMethod.POST)
+    public String deleteMedico(@PathVariable("id") Long id) {
+    	this.medicoService.deleteMedicoById(id);
+    	return "medici";
+    }
+  
 }

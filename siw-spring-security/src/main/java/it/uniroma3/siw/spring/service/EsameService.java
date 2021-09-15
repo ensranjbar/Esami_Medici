@@ -82,9 +82,15 @@ public class EsameService {
 	public TipologiaService getTipologiaService() {
 		return this.tipologiaService;
 	}
+	
 	@Transactional
 	public CredentialsService getCredentialsService() {
 		return credentialsService;
+	}
+
+	@Transactional
+	public void deleteEsameById(Long id) {
+		esameRepository.deleteById(id);
 	}
 
 }

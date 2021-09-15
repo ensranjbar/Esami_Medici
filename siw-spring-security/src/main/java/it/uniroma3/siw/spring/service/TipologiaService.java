@@ -52,4 +52,8 @@ public class TipologiaService {
 	public CredentialsService getCredentialsService() {
 		return credentialsService;
 	}
+
+	public void deleteTipologiaById(Long id) {
+		this.tipologiaRepository.deleteById(id);
+	}
 }
