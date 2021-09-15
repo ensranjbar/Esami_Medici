@@ -77,4 +77,33 @@ public class AuthenticationController {
         }
         return "registerUser";
     }
+    
+	@RequestMapping(value = "/register", method = RequestMethod.GET) 
+	public String showRegisterFormPrimoAdmin (Model model) {
+		model.addAttribute("user", new User());
+		model.addAttribute("credentials", new Credentials());
+		return "registerPrimoAdmin";
+	}
+	
+    @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
+    public String registerUserPrimoAdmin(@ModelAttribute("user") User user,
+                 BindingResult userBindingResult,
+                 @ModelAttribute("credentials") Credentials credentials,
+                 BindingResult credentialsBindingResult,
+                 Model model) {
+
+        // validate user and credentials fields
+        this.userValidator.validate(user, userBindingResult);
+        this.credentialsValidator.validate(credentials, credentialsBindingResult);
+
+        // if neither of them had invalid contents, store the User and the Credentials into the DB
+        if(!userBindingResult.hasErrors() && ! credentialsBindingResult.hasErrors()) {
+            // set the user and store the credentials;
+            // this also stores the User, thanks to Cascade.ALL policy
+            credentials.setUser(user);
+            credentialsService.saveCredentials(credentials);
+            return "registrationSuccessful";
+        }
+        return "registerPrimoAdmin";
+    }
 }
