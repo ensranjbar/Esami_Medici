@@ -86,7 +86,7 @@ public class EsameService {
 	@Transactional
 	public CredentialsService getCredentialsService() {
 		return credentialsService;
-	}
+	} // ??
 
 	@Transactional
 	public void deleteEsameById(Long id) {
