@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{pageTitle.medico})"> </head>
 <body>
-	<header th:replace="fragments/base.html :: intestazione"></header>
+	<header th:replace="fragments/baseadmin.html :: intestazione"></header>
     	<h4  class="t1"></h4>
     	
     	<div class="t2" th:if="${medico}" th:object="${medico}">
@@ -21,7 +21,7 @@
            </ul>
     	<div th:unless="${medico}">Non esiste</div>
     	<!-- <div th:if="${#authorization.expression('isAuthenticated()')}"> -->
-    	<div th:if="${user.role}=='ADMIN'">
+    	<!-- <div th:if="${user.role}=='ADMIN'"> -->
         <!-- <div th:if="${session.role}=='ADMIN'"> -->
             <form action="#" th:object="${medico}" th:action="@{/admin/medico/{id}(id=${medico.id})}">
             <input type="hidden" name="_method" value="delete">
@@ -34,7 +34,7 @@
             <!-- </div> -->
             <!--  </div> -->
              <!-- <div th:unless="${#authorization.expression('isAuthenticated()')}"> </div> -->
-             <div th:unless="${user.role}=='ADMIN'"> </div>
+            <!--  <div th:unless="${user.role}=='ADMIN'"> </div> -->
      </div>
     <footer th:replace="fragments/base.html :: fondo"></footer>
 </body>

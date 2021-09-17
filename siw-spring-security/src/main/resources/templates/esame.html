@@ -21,7 +21,7 @@
     	<div th:unless="${esame}">Non esiste</div>
     	<div th:if="${#authorization.expression('isAuthenticated()')}"> 
      	<div>
-    		<form action="#" th:object="${esame}" th:action="@{/deleteEsame/{id}(id=${esame.id})}" th:method="post" >
+    		<form action="#" th:object="${esame}" th:action="@{/admin/deleteEsame/{id}(id=${esame.id})}" th:method="post" >
     		<input type="hidden" name="_method" value="delete">
       		<button type="submit" id="submitButton">Cancella</button>
     		</form>

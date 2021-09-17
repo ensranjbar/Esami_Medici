@@ -61,6 +61,6 @@ public class PrerequisitoController {
 	@RequestMapping(value= "/admin/deletePrerequisito/{id}", method = RequestMethod.POST)
     public String deletePrerequisito(@PathVariable("id") Long id) {
     	this.prerequisitoService.deletePrerequisitoById(id);
-    	return "prerequisiti";
+    	return "admin/home";
     }
 }

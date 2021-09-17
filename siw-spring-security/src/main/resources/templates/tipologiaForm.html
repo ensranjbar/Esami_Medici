@@ -32,13 +32,13 @@
 							th:field="*{costo}" /></span> <span
 							th:if="${#fields.hasErrors('costo')}" th:errors="*{costo}"></span>
 					</div>
-					<div>
+					<!-- <div>
 				<span>Prerequisito: </span> 
 				<select id="prerequisito" th:field="*{prerequisito}" required>
 				<option th:each="prerequisito : ${prerequisiti}"
 						th:value="${prerequisito.id}" th:text="${prerequisito.nome}"></option>
 				</select>
-			</div>
+			</div> -->
 						<span><button type="submit">Invio</button></span>
 				</div>
 			</form>

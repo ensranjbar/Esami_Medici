@@ -20,7 +20,7 @@
             <input type="hidden" name="_method" value="delete">
               <button type="submit" id="submitButton">Aggiorna i dati</button>
             </form>
-            <form action="#" th:object="${prerequisito}" th:action="@{/deletePrerequisito/{id}(id=${prerequisito.id})}" th:method="post" >
+            <form action="#" th:object="${prerequisito}" th:action="@{/admin/deletePrerequisito/{id}(id=${prerequisito.id})}" th:method="post" >
             <input type="hidden" name="_method" value="delete">
               <button type="submit" id="submitButton">Cancella</button>
             </form>
