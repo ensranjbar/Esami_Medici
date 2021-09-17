@@ -10,6 +10,8 @@
 			<span th:text="*{nome}">qui-va-nome</span>
 			<span th:text="*{descrizione}">qui-va-descrizione</span>
 			<span th:text="*{costo}">qui-va-costo</span>
+			<span th:text="*{prerequisito}">qui-va-costo</span>
+			
    		</div>
    	<!--	<ul>
                <li th:each="esame : ${tipologia.esami}">
@@ -19,14 +21,7 @@
                    <div><br><br></div>
                </li>
            </ul> -->
-           <ul>
-               <li th:each="prerequisito : ${tipologia.prerequisiti}">
-                <a href="prerequisito.html" 
-                   th:href="@{'/prerequisito' + '/' + ${prerequisito.id}}"
-                   th:text="${prerequisito.nome}"> </a>
-                   <div><br><br></div>
-               </li>
-           </ul>
+           
     	<div th:unless="${tipologia}">Non esiste</div>
     	<div th:if="${#authorization.expression('isAuthenticated()')}"> 
      	<div>
@@ -37,6 +32,6 @@
     	  </div>
     	</div>
     </div>
-    <footer th:replace="fragments/baseadmin.html :: fondo"></footer>
+
 </body>
 </html>

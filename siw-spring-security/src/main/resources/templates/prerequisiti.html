@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/base.html :: headerfiles(title=#{header.prerequisito})">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div>
+		<h4 class="t1">Lista di Prerequisiti</h4>
+		<ul>
+			<li class="t1" th:each="prerequisito : ${prerequisiti}"><a
+				href="prerequisito.html"
+				th:href="@{'/prerequisito' + '/' + ${prerequisito.id}}"
+				th:text="|${prerequisito.nome} ${prerequisito.valore}|">qui-va-nome-valore</a>
+				<div>
+					<form action="#" th:object="${prerequisito}"
+						th:action="@{/admin/deletePrerequisito/{id}(id=${prerequisito.id})}"
+						th:method="post">
+						<input type="hidden" name="_method" value="delete">
+						<button type="submit" id="submitButton">Cancella</button>
+					</form>
+				</div></li>
+		</ul>
+		<br>
+
+
+	</div>
+</body>
+</html>

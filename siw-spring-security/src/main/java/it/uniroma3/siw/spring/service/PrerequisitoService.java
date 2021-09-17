@@ -51,4 +51,10 @@ public class PrerequisitoService {
 	public CredentialsService getCredentialsService() {
 		return credentialsService;
 	}
+
+
+	@Transactional
+	public void deletePrerequisitoById(Long id) {
+		prerequisitoRepository.deleteById(id);
+	}
 }

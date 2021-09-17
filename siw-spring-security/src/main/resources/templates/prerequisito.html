@@ -5,29 +5,22 @@
 	<header th:replace="fragments/base.html :: intestazione"></header>
     	<h4  class="t1"></h4>
     	
-    	<div class="t2" th:if="${medico}" th:object="${medico}">
+    	<div class="t2" th:if="${prerequisito}" th:object="${prerequisito}">
 			<span th:text="*{nome}">qui-va-nome</span>
-			<span th:text="*{cognome}">qui-va-cognome</span>
-			<span th:text="*{specializzazione}">qui-va-specializzazione</span>
+			<span th:text="*{valore}">qui-va-valore</span>
+			
 	
    		</div>
-   		<ul>
-               <li th:each="esame : ${medico.esami}">
-                <a href="esame.html" 
-                   th:href="@{'/esame' + '/' + ${esame.id}}"
-                   th:text="${esame.tipologia}"> </a>
-                   <div><br><br></div>
-               </li>
-           </ul>
-    	<div th:unless="${medico}">Non esiste</div>
+
+    	<div th:unless="${prerequisito}">Non esiste</div>
     	<!-- <div th:if="${#authorization.expression('isAuthenticated()')}"> -->
     	<div th:if="${user.role}=='ADMIN'">
         <!-- <div th:if="${session.role}=='ADMIN'"> -->
-            <form action="#" th:object="${medico}" th:action="@{/admin/medico/{id}(id=${medico.id})}">
+            <form action="#" th:object="${prerequisito}" th:action="@{/admin/prerequisito/{id}(id=${prerequisito.id})}">
             <input type="hidden" name="_method" value="delete">
               <button type="submit" id="submitButton">Aggiorna i dati</button>
             </form>
-            <form action="#" th:object="${medico}" th:action="@{/admin/deleteMedico/{id}(id=${medico.id})}" th:method="post" >
+            <form action="#" th:object="${prerequisito}" th:action="@{/deletePrerequisito/{id}(id=${prerequisito.id})}" th:method="post" >
             <input type="hidden" name="_method" value="delete">
               <button type="submit" id="submitButton">Cancella</button>
             </form>

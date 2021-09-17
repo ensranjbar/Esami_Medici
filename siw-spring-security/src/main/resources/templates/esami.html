@@ -10,9 +10,14 @@
 				<a href="esame.html"
 				   th:href="@{'/esame' + '/' + ${esame.id}}" 
 				   th:text="|${esame.dataEsame} ${esame.dataPrenotazione} ${esame.tipologia}">qui-vanno-date-tipologia</a>
+				   	<div>
+    		<form action="#" th:object="${esame}" th:action="@{/admin/deleteEsame/{id}(id=${esame.id})}" th:method="post" >
+    		<input type="hidden" name="_method" value="delete">
+      		<button type="submit" id="submitButton">Cancella</button>
+    		</form>
+    	  </div>
 			</li>
 		</ul>
 	</div>
-	<footer th:replace="fragments/baseadmin.html :: fondo"></footer>
 </body>
 </html>

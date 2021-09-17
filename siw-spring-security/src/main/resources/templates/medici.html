@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/base.html :: headerfiles(title=#{header.medici})"> </head>
+<head
+	th:replace="fragments/base.html :: headerfiles(title=#{header.medici})">
+</head>
 <body>
 	<header th:replace="fragments/base.html :: intestazione"></header>
 	<div>
-    	<h4 class="t1" >Lista di medici</h4>
+		<h4 class="t1">Lista di medici</h4>
 		<ul>
-			<li class="t5" th:each="medico : ${medici}">
-				<a href="medico.html" 
-				   th:href="@{'/medico' + '/' + ${medico.id}}" 
-				   th:text="|${medico.nome} ${medico.cognome}|">Paolo Rossi</a>
-		
-			</li>
+			<li class="t5" th:each="medico : ${medici}"><a
+				href="medico.html" th:href="@{'/medico' + '/' + ${medico.id}}"
+				th:text="|${medico.nome} ${medico.cognome}|">Paolo Rossi</a>
+				<div>
+					<form action="#" th:object="${medico}"
+						th:action="@{/admin/deleteMedico/{id}(id=${medico.id})}"
+						th:method="post">
+						<input type="hidden" name="_method" value="delete">
+						<button type="submit" id="submitButton">Cancella</button>
+					</form>
+				</div></li>
 		</ul>
 	</div>
 	<footer th:replace="fragments/base.html :: fondo"></footer>
