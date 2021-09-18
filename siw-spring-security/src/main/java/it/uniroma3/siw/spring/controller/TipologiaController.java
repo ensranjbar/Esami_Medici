@@ -26,8 +26,6 @@ public class TipologiaController {
 
 	@Autowired
 	private TipologiaValidator tipologiaValidator;
-	@Autowired
-	private PrerequisitoService prerequisitoService;
 
 	@RequestMapping(value = "/admin/tipologia", method = RequestMethod.GET)
 	public String addTipologia(Model model) {
@@ -38,12 +36,14 @@ public class TipologiaController {
 	@RequestMapping(value = "/tipologia/{id}", method = RequestMethod.GET)
 	public String getTipologia(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("tipologia", this.tipologiaService.tipologiaPerId(id));
+	//	model.addAttribute("role", this.tipologiaService.getCredentialsService().getRoleAuthenticated());
 		return "tipologia";
 	}
 
 	@RequestMapping(value = "/tipologia", method = RequestMethod.GET)
 	public String getTipologie(Model model) {
 		model.addAttribute("tipologie", this.tipologiaService.tutti());
+		//model.addAttribute("role", this.tipologiaService.getCredentialsService().getRoleAuthenticated());
 		return "tipologie";
 	}
 
@@ -59,41 +59,14 @@ public class TipologiaController {
 		return "tipologiaForm";
 	}
 
-	@RequestMapping(value= "/admin/deleteTipologia/{id}", method = RequestMethod.POST)
-    public String deleteTipologia(@PathVariable("id") Long id) {
-    	this.tipologiaService.deleteTipologiaById(id);
-    	return "admin/home";
-    }
-}
+	 @RequestMapping(value="/admin/tipologia/{id}", method= RequestMethod.GET)
+	    public String deleteTipologia(@PathVariable("id")Long id, Model model) {
+	 
+	    		this.tipologiaService.deletedTipologia(id);
+	    	//	logger.debug("tipologia cancellato");
+	    		model.addAttribute("tipologie",this.tipologiaService.tutti());
+	        	model.addAttribute("role", this.tipologiaService.getCredentialsService().getRoleAuthenticated());
 
-/*
- * INSERIMENTO
- * Prerequisito-----------------------------------------------------------------
- * -----------------------------------------------------------------------------
- * -------------------------------------
- * 
- * @RequestMapping(value="/tipologie/{tipologia.id}/addPrerequisito", method =
- * RequestMethod.GET) public String addPrerequisito(Model model) {
- * model.addAttribute("prerequisito", new Prerequisito()); return
- * "prerequisitoForm"; }
- * 
- * @RequestMapping(value = "/tipologie/{tipologia.id}/getPrerequisito/{id}",
- * method = RequestMethod.GET) public String getPrerequisito(@PathVariable("id")
- * Long id, Model model) { model.addAttribute("prerequisito",
- * this.prerequisitoService.prerequisitoPerId(id)); return "prerequisito"; }
- * 
- * @RequestMapping(value = "/tipologie/{tipologia.id}/getPrerequisiti", method =
- * RequestMethod.GET) public String getPrerequisiti(Model model) {
- * model.addAttribute("prerequisiti", this.prerequisitoService.tutti()); return
- * "prerequisiti"; }
- * 
- * 
- * 
- * @RequestMapping(value=
- * "/admin/tipologie/{tipologia.id}/deletePrerequisito/{id}", method =
- * RequestMethod.POST) public String deletePrerequisito(@PathVariable("id") Long
- * id) { this.prerequisitoService.deletePrerequisitoById(id); return
- * "prerequisiti"; }
- * 
- * }
- */
+	    		return "tipologie";	
+	    }
+}

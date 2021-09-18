@@ -2,7 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{pageTitle.esame})"> </head>
 <body>
-	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div th:if="${role}=='ADMIN'">
+		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	</div>
+	<div th:unless="${role}=='ADMIN'">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>
+	
     <div>
     	<h4 class="t1"></h4>
     	
@@ -20,11 +26,8 @@
            </ul> -->
     	<div th:unless="${esame}">Non esiste</div>
     	<div th:if="${#authorization.expression('isAuthenticated()')}"> 
-     	<div>
-    		<form action="#" th:object="${esame}" th:action="@{/admin/deleteEsame/{id}(id=${esame.id})}" th:method="post" >
-    		<input type="hidden" name="_method" value="delete">
-      		<button type="submit" id="submitButton">Cancella</button>
-    		</form>
+     	<div><div th:if="${session.role}=='ADMIN'">
+    		<a class="btn" th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a></div>
     	  </div>
     	</div>
     </div>

@@ -37,7 +37,7 @@ public class EsameController {
     @RequestMapping(value = "/esame/{id}", method = RequestMethod.GET)
     public String getEsame(@PathVariable("id") Long id, Model model) {
     	model.addAttribute("esame", this.esameService.esameById(id));
-    	model.addAttribute("role", this.esameService.getCredentialsService().getRoleAuthenticated());
+    	//model.addAttribute("role", this.esameService.getCredentialsService().getRoleAuthenticated());
 
     	return "esame";
     }
@@ -81,11 +81,17 @@ public class EsameController {
         return "esameForm";
     }
    
-    @RequestMapping(value= "/admin/deleteEsame/{id}", method = RequestMethod.POST)
-    public String deleteEsame(@PathVariable("id") Long id) {
-    	this.esameService.deleteEsameById(id);
-    	return "admin/home";
-    }
+	 @RequestMapping(value="/admin/esame/{id}", method= RequestMethod.GET)
+	    public String deleteEsame(@PathVariable("id")Long id, Model model) {
+//			logger.debug("inzio eliminazione");
+	    		this.esameService.deletedEsame(id);
+	    	//	logger.debug("esame cancellato");
+	    		model.addAttribute("esami",this.esameService.tutti());
+	        	model.addAttribute("role", this.esameService.getCredentialsService().getRoleAuthenticated());
+
+	    		return "esami";	
+	    }
+
   
 
 }

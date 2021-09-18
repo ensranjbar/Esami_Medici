@@ -56,7 +56,16 @@ public class MedicoService {
 	public void deleteMedicoById(Long id) {
 		medicoRepository.deleteById(id);
 	}
-	
+	@Transactional
+	public boolean deletedMedico(Long id) {
+		try {
+			this.medicoRepository.deleteById(id);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
+	}
 
 
 }

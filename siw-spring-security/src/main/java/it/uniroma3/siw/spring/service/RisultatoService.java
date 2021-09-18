@@ -42,4 +42,14 @@ public class RisultatoService {
 		return credentialsService;
 	}
 
+	@Transactional
+	public boolean deletedRisulatato(Long id) {
+		try {
+			this.risultatoRepository.deleteById(id);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
+	}
 }

@@ -37,12 +37,14 @@ public class PrerequisitoController {
 	@RequestMapping(value = "/prerequisito/{id}", method = RequestMethod.GET)
 	public String getPrerequisito(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("prerequisito", this.prerequisitoService.prerequisitoPerId(id));
+		//model.addAttribute("role", this.prerequisitoService.getCredentialsService().getRoleAuthenticated());
 		return "prerequisito";
 	}
 
 	@RequestMapping(value = "/prerequisito", method = RequestMethod.GET)
 	public String getPrerequisiti(Model model) {
 		model.addAttribute("prerequisiti", this.prerequisitoService.tutti());
+		//model.addAttribute("role", this.prerequisitoService.getCredentialsService().getRoleAuthenticated());
 		return "prerequisiti";
 	}
 
@@ -58,9 +60,14 @@ public class PrerequisitoController {
 		return "prerequisitoForm";
 	}
 
-	@RequestMapping(value= "/admin/deletePrerequisito/{id}", method = RequestMethod.POST)
-    public String deletePrerequisito(@PathVariable("id") Long id) {
-    	this.prerequisitoService.deletePrerequisitoById(id);
-    	return "admin/home";
-    }
+	 @RequestMapping(value="/admin/prerequisito/{id}", method= RequestMethod.GET)
+	    public String deletePrerequisito(@PathVariable("id")Long id, Model model) {
+		 //	logger.debug("inzio eliminazione");
+	    		this.prerequisitoService.deletedPrerequisito(id);
+	    	//	logger.debug("prerequisito cancellato");
+	    		model.addAttribute("prerequisiti",this.prerequisitoService.tutti());
+	        	model.addAttribute("role", this.prerequisitoService.getCredentialsService().getRoleAuthenticated());
+
+	    		return "prerequisiti";	
+	    }
 }

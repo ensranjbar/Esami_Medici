@@ -4,7 +4,13 @@
 	th:replace="fragments/baseadmin.html :: headerfiles(title=#{header.tipologie})">
 </head>
 <body>
-	<header th:replace="fragments/base.html :: intestazione"></header>
+		<div th:if="${role}=='ADMIN'">
+		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	</div>
+	<div th:unless="${role}=='ADMIN'">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>
+	
 	<div>
 		<h4 class="t1">Lista di tipologie</h4>
 		<ul>
@@ -12,13 +18,9 @@
 				href="tipologia.html"
 				th:href="@{'/tipologia' + '/' + ${tipologia.id}}"
 				th:text="|${tipologia.nome} ${tipologia.costo}|">qui-va-nome-costo</a>
-				<div>
-					<form action="#" th:object="${tipologia}"
-						th:action="@{/admin/deleteTipologia/{id}(id=${tipologia.id})}"
-						th:method="post">
-						<input type="hidden" name="_method" value="delete">
-						<button type="submit" id="submitButton">Cancella</button>
-					</form>
+				
+				<div><div th:if="${session.role}=='ADMIN'">
+					 <a class="btn" th:href="@{'/admin/tipologia' + '/' + ${tipologia.id}}">elimina</a></div>
 				</div></li>
 		</ul>
 		<br>

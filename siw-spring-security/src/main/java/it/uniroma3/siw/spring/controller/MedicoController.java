@@ -35,12 +35,14 @@ public class MedicoController {
 	@RequestMapping(value = "/medico/{id}", method = RequestMethod.GET)
 	public String getMedico(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("medico", this.medicoService.medicoPerId(id));
+	//	model.addAttribute("role", this.medicoService.getCredentialsService().getRoleAuthenticated());
 		return "medico";
 	}
 
 	@RequestMapping(value = "/medico", method = RequestMethod.GET)
 	public String getMedici(Model model) {
 		model.addAttribute("medici", this.medicoService.tutti());
+		//model.addAttribute("role", this.medicoService.getCredentialsService().getRoleAuthenticated());
 		return "medici";
 	}
 
@@ -55,10 +57,15 @@ public class MedicoController {
 		return "medicoForm";
 	}
 	
-    @RequestMapping(value= "/admin/deleteMedico/{id}", method = RequestMethod.POST)
-    public String deleteMedico(@PathVariable("id") Long id) {
-    	this.medicoService.deleteMedicoById(id);
-    	return "admin/home";
-    }
+	 @RequestMapping(value="/admin/medico/{id}", method= RequestMethod.GET)
+	    public String deleteMedico(@PathVariable("id")Long id, Model model) {
+//			logger.debug("inzio eliminazione");
+	    		this.medicoService.deleteMedicoById(id);
+	    	//	logger.debug("medico cancellato");
+	    		model.addAttribute("medici",this.medicoService.tutti());
+	        	model.addAttribute("role", this.medicoService.getCredentialsService().getRoleAuthenticated());
+
+	    		return "medici";	
+	    }
   
 }

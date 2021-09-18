@@ -56,4 +56,15 @@ public class TipologiaService {
 	public void deleteTipologiaById(Long id) {
 		this.tipologiaRepository.deleteById(id);
 	}
+	
+	@Transactional
+	public boolean deletedTipologia(Long id) {
+		try {
+			this.tipologiaRepository.deleteById(id);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
+	}
 }

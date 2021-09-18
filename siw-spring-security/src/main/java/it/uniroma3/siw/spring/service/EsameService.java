@@ -92,5 +92,15 @@ public class EsameService {
 	public void deleteEsameById(Long id) {
 		esameRepository.deleteById(id);
 	}
+	@Transactional
+	public boolean deletedEsame(Long id) {
+		try {
+			this.esameRepository.deleteById(id);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
+	}
 
 }

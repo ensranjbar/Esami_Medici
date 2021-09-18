@@ -57,4 +57,14 @@ public class PrerequisitoService {
 	public void deletePrerequisitoById(Long id) {
 		prerequisitoRepository.deleteById(id);
 	}
+	@Transactional
+	public boolean deletedPrerequisito(Long id) {
+		try {
+			this.prerequisitoRepository.deleteById(id);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
+	}
 }
