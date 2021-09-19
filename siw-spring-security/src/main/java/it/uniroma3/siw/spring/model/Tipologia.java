@@ -29,7 +29,7 @@ public class Tipologia {
 	private float costo; 
 	
 	
-	@OneToMany(mappedBy="tipologia",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="tipologia",cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST})
 	private List<Esame> esami;
 	
 	@OneToMany(mappedBy="tipologia",cascade=CascadeType.ALL)
