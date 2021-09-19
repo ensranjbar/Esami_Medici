@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/baseadmin.html :: headerfiles(title=#{header.tipologie})">
+</head>
+<body>
+	<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	<div class="container">
+		<div class="myform">
+			<div>
+				<h4 class="t1">Inserisci i dati di un risultati di Esame</h4>
+			</div>
+			<form th:action="@{/admin/risultato}" method="POST"
+				th:object="${risultato}">
+				<div th:if="${#fields.hasGlobalErrors()}">
+					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+				</div>
+				<div>
+					<div>
+						<span>Nome:</span> <span><input type="text"
+							th:field="*{nome}" /></span> <span th:if="${#fields.hasErrors('nome')}"
+							th:errors="*{nome}"></span>
+					</div>
+					<div>
+						<span>Valore:</span> <span><input type="text"
+							th:field="*{valore}" /></span> <span
+							th:if="${#fields.hasErrors('valore')}" th:errors="*{valore}"></span>
+					</div>
+					<div>
+						<label>Esame: </label> <select id="esame" th:field="*{esame}"
+							required>
+							<option th:each="esame : ${esami}" th:value="${esame.id}"
+								th:text="${esame.nome}"></option>
+						</select>
+					</div>
+
+
+
+					<!-- <div>
+				<span>Prerequisito: </span> 
+				<select id="prerequisito" th:field="*{prerequisito}" required>
+				<option th:each="prerequisito : ${prerequisiti}"
+						th:value="${prerequisito.id}" th:text="${prerequisito.nome}"></option>
+				</select>
+			</div> -->
+
+					<span><button type="submit">Invio</button></span>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

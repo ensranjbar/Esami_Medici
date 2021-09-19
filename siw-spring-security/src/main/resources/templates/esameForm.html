@@ -23,6 +23,11 @@
 						<span><input type="date" th:field="*{dataEsame}" /></span> <span th:if="${#fields.hasErrors('dataEsame')}"
 							th:errors="*{dataEsame}"></span>
 					</div>
+						 <div>
+						<span>OrarioEsame:</span> 
+						<span><input type="time" th:field="*{orarioEsame}" /></span> <span th:if="${#fields.hasErrors('orarioEsame')}"
+							th:errors="*{orarioEsame}"></span>
+					</div> 
 					<div>
 						<span>Medico: </span> 
 							<select id="medico" th:field="*{medico}" required>

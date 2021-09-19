@@ -6,8 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -27,7 +26,7 @@ public class Risultato {
 	private String Valore;
 	
 
-	@ManyToOne
+	@OneToOne
 	private Esame esame;
 	
 
