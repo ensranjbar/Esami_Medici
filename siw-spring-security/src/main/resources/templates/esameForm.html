@@ -12,7 +12,7 @@
 				<div th:if="${#fields.hasGlobalErrors()}">
 					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 				</div>
-				<div>
+				
 					<div>
 						<span>Data Prenotazione:</span> <span><input type="date"
 							th:field="*{dataPrenotazione}" /></span> <span
@@ -23,42 +23,29 @@
 						<span><input type="date" th:field="*{dataEsame}" /></span> <span th:if="${#fields.hasErrors('dataEsame')}"
 							th:errors="*{dataEsame}"></span>
 					</div>
-					<!-- <div>
+					<div>
 						<span>Medico: </span> 
 							<select id="medico" th:field="*{medico}" required>
 							<option th:each="medico : ${medici}"
 							th:value="${medico.id}" th:text="${medico.cognome}"></option>
 						</select>
-					</div> -->
-					<div>
-						<span>Medico:</span> <span><input type="number"
-							th:field="*{medico.id}" /></span> <span th:if="${#fields.hasErrors('medico.id')}"
-							th:errors="*{medico.id}"></span>
-					</div>
-					<div>
-						<span>Paziente:</span> <span><input type="number"
-							th:field="*{paziente.id}" /></span> <span th:if="${#fields.hasErrors('paziente.id')}"
-							th:errors="*{paziente.id}"></span>
-					</div>
-					<!-- <div>
+					</div> 
+					
+					 <div>
 						<span>Paziente: </span> 
 							<select id="paziente" th:field="*{paziente}" required>
 							<option th:each="paziente : ${pazienti}"
 							th:value="${paziente.id}" th:text="${paziente.nome}"></option>
 						</select>
-					</div> -->
-					<!-- <div>
+					</div> 
+					<div>
 						<span>Tipologia: </span> 
 							<select id="tipologia" th:field="*{tipologia}" required>
 							<option th:each="tipologia : ${tipologie}"
 							th:value="${tipologia.id}" th:text="${tipologia.nome}"></option>
 						</select>
-					</div> -->
-					<div>
-						<span>tipologia:</span> <span><input type="number"
-							th:field="*{tipologia.id}" /></span> <span th:if="${#fields.hasErrors('tipologia.id')}"
-							th:errors="*{tipologia.id}"></span>
-					</div>
+					</div> 
+					
 				<!--	</div>
 					<form method="post" enctype="multipart/form-data" action="/uploadImage"> 
  						<input type="file" name="imagiFile"> 

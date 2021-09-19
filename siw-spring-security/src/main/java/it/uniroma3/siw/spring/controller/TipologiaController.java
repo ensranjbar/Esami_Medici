@@ -30,6 +30,7 @@ public class TipologiaController {
 	@RequestMapping(value = "/admin/tipologia", method = RequestMethod.GET)
 	public String addTipologia(Model model) {
 		model.addAttribute("tipologia", new Tipologia());
+		model.addAttribute("prerequisiti",this.tipologiaService.getPrerequisitoService().tutti());
 		return "tipologiaForm";
 	}
 
