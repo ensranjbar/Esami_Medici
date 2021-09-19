@@ -43,7 +43,7 @@ public class Esame {
 	
 	
 	 @Column(nullable = false)
-	  @DateTimeFormat(pattern = "HH:mm:ss") 
+	  @DateTimeFormat(pattern = "HH:mm") 
 	 private LocalTime OrarioEsame;
 
 	@OneToMany(mappedBy="esame",cascade=CascadeType.ALL)
