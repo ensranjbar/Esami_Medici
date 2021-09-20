@@ -8,27 +8,19 @@
 			<div>
 				<h4 class="t1">Inserisci i dati di un esame</h4>
 			</div>
-			<form th:action="@{/admin/esame}" method="POST" th:object="${esame}">
+			<form th:action="@{esame}" method="POST" th:object="${esame}">
 				<div th:if="${#fields.hasGlobalErrors()}">
 					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 				</div>
 				
-					<div>
-						<span>Data Prenotazione:</span> <span><input type="date"
-							th:field="*{dataPrenotazione}" /></span> <span
-							th:if="${#fields.hasErrors('dataPrenotazione')}" th:errors="*{dataPrenotazione}"></span>
-					</div>
+					
 					<div>
 						<span>DataEsame:</span> 
 						<span><input type="date" th:field="*{dataEsame}" /></span> <span th:if="${#fields.hasErrors('dataEsame')}"
 							th:errors="*{dataEsame}"></span>
 					</div>
-						 <div>
-						<span>OrarioEsame:</span> 
-						<span><input type="time" th:field="*{orarioEsame}" /></span> <span th:if="${#fields.hasErrors('orarioEsame')}"
-							th:errors="*{orarioEsame}"></span>
-					</div> 
-					<div>
+			
+					 <div>
 						<span>Medico: </span> 
 							<select id="medico" th:field="*{medico}" required>
 							<option th:each="medico : ${medici}"
@@ -49,7 +41,7 @@
 							<option th:each="tipologia : ${tipologie}"
 							th:value="${tipologia.id}" th:text="${tipologia.nome}"></option>
 						</select>
-					</div> 
+					</div>  
 					
 				<!--	</div>
 					<form method="post" enctype="multipart/form-data" action="/uploadImage"> 

@@ -15,7 +15,6 @@
     	<div class="t2" th:if="${esame}" th:object="${esame}">
 			<span th:text="*{dataPrenotazione}">qui-va-dataPrenotazione</span>
 			<span th:text="*{dataEsame}">qui-va-dataEsame</span>
-			<span th:text="*{orarioEsame}">qui-va-orarioEsame</span> 
    		</div>
    		<!-- <ul>
                <li th:each="immagine : ${opera.immagini}">
@@ -26,7 +25,6 @@
                </li>
            </ul> -->
     	<div th:unless="${esame}">Non esiste</div>
-    	<!-- <div th:if="${#authorization.expression('isAuthenticated()')}">  -->
      	<div><div th:if="${session.role}=='ADMIN'">
     		<a class="btn" th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a></div>
     	  </div>

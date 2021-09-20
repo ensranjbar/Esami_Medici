@@ -26,11 +26,6 @@ public class Esame {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable = false)
-	private String nome;
-	
-	
-	
 	//data orarioPrenotazione
 	@Column(nullable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd") // HH:mm:ss
@@ -39,17 +34,19 @@ public class Esame {
 	//dataOrarioEsame
 	@Column(nullable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd") // HH:mm:ss
-	private LocalDate dataEsame;
+	private LocalDate dataEsame;//string
 	
 	
-	 @Column(nullable = false)
-	  @DateTimeFormat(pattern = "HH:mm") 
-	 private LocalTime OrarioEsame;
+	/*
+	 * @Column(nullable = false)
+	 * 
+	 * @DateTimeFormat(pattern = "HH:mm") private LocalTime OrarioEsame;
+	 */
 
 	@OneToMany(mappedBy="esame",cascade=CascadeType.ALL)
 	private List <Risultato> risultati;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	private User paziente;
 	
 	@ManyToOne

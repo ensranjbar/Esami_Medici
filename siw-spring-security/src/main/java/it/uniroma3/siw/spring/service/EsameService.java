@@ -71,14 +71,17 @@ public class EsameService {
 			return false;
 	}
 	
+	@Transactional	
 	public UserService getUserService() {
 		return this.userService;
 	}
 
+	@Transactional
 	public MedicoService getMedicoService() {
 		return this.medicoService;
 	}
 
+	@Transactional
 	public TipologiaService getTipologiaService() {
 		return this.tipologiaService;
 	}
@@ -86,7 +89,7 @@ public class EsameService {
 	@Transactional
 	public CredentialsService getCredentialsService() {
 		return credentialsService;
-	} // ??
+	} 
 
 	@Transactional
 	public void deleteEsameById(Long id) {

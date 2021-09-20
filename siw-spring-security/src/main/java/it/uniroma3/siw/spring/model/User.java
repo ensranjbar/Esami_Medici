@@ -30,7 +30,7 @@ public class User {
 	private String cognome;
 	
 	
-	@OneToMany(fetch = FetchType.EAGER,mappedBy="paziente",cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST})
+	@OneToMany(mappedBy="paziente",cascade = {CascadeType.ALL})
 	private List<Esame> Esami;
 	
 }

@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.controller;
 
+import java.time.LocalDate;
+
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,7 @@ public class EsameController {
     private EsameValidator esameValidator;
         
     @RequestMapping(value="/admin/esame", method = RequestMethod.GET)
-    public String addExam(Model model) {
+    public String addEsame(Model model) {
     	model.addAttribute("esame", new Esame());
     	model.addAttribute("pazienti", this.esameService.getUserService().tutti());
     	model.addAttribute("medici", this.esameService.getMedicoService().tutti());
@@ -58,22 +60,23 @@ public class EsameController {
     	
 
 }
-  /*  @RequestMapping(value = "/esame", method = RequestMethod.GET)
+  @RequestMapping(value = "/esame", method = RequestMethod.GET)
     public String getEsami(Model model) {
     		model.addAttribute("esami", this.esameService.tutti());
     		return "esami";
-    }*/
-    @RequestMapping(value = "/esame", method = RequestMethod.GET)
+    }
+   /* @RequestMapping(value = "/esame", method = RequestMethod.GET)
     public String getEsamiByPaziente(@ModelAttribute("paziente") User paziente,Model model) {
     		model.addAttribute("esami", this.esameService.esameByPaziente(paziente));
     		return "esami";
-    }
+    }*/
     
     @RequestMapping(value = "/admin/esame", method = RequestMethod.POST)
     public String newEsame(@ModelAttribute("esame") Esame esame, 
     									Model model, BindingResult bindingResult) {
-    	this.esameValidator.validate(esame, bindingResult);
+    	
         if (!bindingResult.hasErrors()) {
+        	esame.setDataPrenotazione(LocalDate.now());      
         	this.esameService.inserisci(esame);
             model.addAttribute("esami", this.esameService.tutti());
             return "esami";

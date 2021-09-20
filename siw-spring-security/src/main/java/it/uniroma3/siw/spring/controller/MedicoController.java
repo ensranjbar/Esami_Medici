@@ -35,7 +35,7 @@ public class MedicoController {
 	@RequestMapping(value = "/medico/{id}", method = RequestMethod.GET)
 	public String getMedico(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("medico", this.medicoService.medicoPerId(id));
-	//	model.addAttribute("role", this.medicoService.getCredentialsService().getRoleAuthenticated());
+	//model.addAttribute("role", this.medicoService.getCredentialsService().getRoleAuthenticated());
 		return "medico";
 	}
 
