@@ -32,5 +32,11 @@ public class User {
 	
 	@OneToMany(mappedBy="paziente",cascade = {CascadeType.ALL})
 	private List<Esame> Esami;
+
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", nome=" + nome + ", cognome=" + cognome + "]";
+	}
 	
 }

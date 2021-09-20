@@ -36,12 +36,6 @@ public class Esame {
 	@DateTimeFormat(pattern = "yyyy-MM-dd") // HH:mm:ss
 	private LocalDate dataEsame;//string
 	
-	
-	/*
-	 * @Column(nullable = false)
-	 * 
-	 * @DateTimeFormat(pattern = "HH:mm") private LocalTime OrarioEsame;
-	 */
 
 	@OneToMany(mappedBy="esame",cascade=CascadeType.ALL)
 	private List <Risultato> risultati;
@@ -54,6 +48,12 @@ public class Esame {
 	
 	@ManyToOne
 	private Medico medico;
+
+	@Override
+	public String toString() {
+		return "Esame [id=" + id + ", dataPrenotazione=" + dataPrenotazione + ", dataEsame=" + dataEsame
+				+ ", risultati=" + risultati + ", paziente=" + paziente + ", medico=" + medico + "]";
+	}
 	
 
 	

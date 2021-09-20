@@ -63,8 +63,7 @@ public class TipologiaController {
 	 @RequestMapping(value="/admin/tipologia/{id}", method= RequestMethod.GET)
 	    public String deleteTipologia(@PathVariable("id")Long id, Model model) {
 	 
-	    		this.tipologiaService.deletedTipologia(id);
-	    	//	logger.debug("tipologia cancellato");
+	    		this.tipologiaService.deleteTipologiaById(id);
 	    		model.addAttribute("tipologie",this.tipologiaService.tutti());
 	        	model.addAttribute("role", this.tipologiaService.getCredentialsService().getRoleAuthenticated());
 

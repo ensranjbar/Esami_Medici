@@ -62,9 +62,7 @@ public class PrerequisitoController {
 
 	 @RequestMapping(value="/admin/prerequisito/{id}", method= RequestMethod.GET)
 	    public String deletePrerequisito(@PathVariable("id")Long id, Model model) {
-		 //	logger.debug("inzio eliminazione");
 	    		this.prerequisitoService.deletedPrerequisito(id);
-	    	//	logger.debug("prerequisito cancellato");
 	    		model.addAttribute("prerequisiti",this.prerequisitoService.tutti());
 	        	model.addAttribute("role", this.prerequisitoService.getCredentialsService().getRoleAuthenticated());
 

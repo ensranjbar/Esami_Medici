@@ -16,14 +16,6 @@
 			<span th:text="*{dataPrenotazione}">qui-va-dataPrenotazione</span>
 			<span th:text="*{dataEsame}">qui-va-dataEsame</span>
    		</div>
-   		<!-- <ul>
-               <li th:each="immagine : ${opera.immagini}">
-               <!-- <a href="immagine.html" 
-                   th:href="@{'/immagine' + '/' + ${immagine.id}}"
-                   th:text="${immagine.titolo}"> </a>
-                   <div><br><br></div>
-               </li>
-           </ul> -->
     	<div th:unless="${esame}">Non esiste</div>
      	<div><div th:if="${session.role}=='ADMIN'">
     		<a class="btn" th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a></div>

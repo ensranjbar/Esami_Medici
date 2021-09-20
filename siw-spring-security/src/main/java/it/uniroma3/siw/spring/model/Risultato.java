@@ -28,6 +28,12 @@ public class Risultato {
 
 	@OneToOne
 	private Esame esame;
+
+
+	@Override
+	public String toString() {
+		return "Risultato [id=" + id + ", nome=" + nome + ", Valore=" + Valore + "]";
+	}
 	
 
 }

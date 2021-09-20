@@ -21,5 +21,7 @@ public class Prerequisito {
 
 	@ManyToOne
 	private Tipologia tipologia;
+
+
 	
 }

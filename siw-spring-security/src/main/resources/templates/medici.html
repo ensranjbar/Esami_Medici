@@ -4,21 +4,23 @@
 	th:replace="fragments/baseadmin.html :: headerfiles(title=#{header.medici})">
 </head>
 <body>
-		<div th:if="${role}=='ADMIN'">
+	<div th:if="${role}=='ADMIN'">
 		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
 	</div>
 	<div th:unless="${role}=='ADMIN'">
 		<header th:replace="fragments/base.html :: intestazione"></header>
 	</div>
-	
+
 	<div>
 		<h4 class="t1">Lista di medici</h4>
 		<ul>
 			<li class="t5" th:each="medico : ${medici}"><a
 				href="medico.html" th:href="@{'/medico' + '/' + ${medico.id}}"
 				th:text="|${medico.nome} ${medico.cognome}|">Paolo Rossi</a>
-				<div><div th:if="${session.role}=='ADMIN'">
-					<a class="btn" th:href="@{'/admin/medico' + '/' + ${medico.id}}">elimina</a></div>
+				<div>
+					<div th:if="${session.role}=='ADMIN'">
+						<a class="btn" th:href="@{'/admin/medico' + '/' + ${medico.id}}">elimina</a>
+					</div>
 				</div></li>
 		</ul>
 	</div>

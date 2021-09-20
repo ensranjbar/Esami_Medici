@@ -30,7 +30,7 @@
 						<label>Esame: </label> <select id="esame" th:field="*{esame}"
 							required>
 							<option th:each="esame : ${esami}" th:value="${esame.id}"
-								th:text="${esame.nome}"></option>
+								th:text="${esame.tipologia}"></option>
 						</select>
 					</div>
 

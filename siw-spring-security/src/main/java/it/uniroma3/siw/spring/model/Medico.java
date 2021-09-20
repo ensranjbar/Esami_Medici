@@ -32,6 +32,12 @@ public class Medico {
 	@OneToMany(mappedBy="medico", cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST})
 	private List<Esame> esami;
 
+	@Override
+	public String toString() {
+		return "Medico [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", Specializzazione=" + Specializzazione
+				+ "]";
+	}
+
 	
 
 }

@@ -65,11 +65,7 @@ public class EsameController {
     		model.addAttribute("esami", this.esameService.tutti());
     		return "esami";
     }
-   /* @RequestMapping(value = "/esame", method = RequestMethod.GET)
-    public String getEsamiByPaziente(@ModelAttribute("paziente") User paziente,Model model) {
-    		model.addAttribute("esami", this.esameService.esameByPaziente(paziente));
-    		return "esami";
-    }*/
+
     
     @RequestMapping(value = "/admin/esame", method = RequestMethod.POST)
     public String newEsame(@ModelAttribute("esame") Esame esame, 
@@ -86,9 +82,7 @@ public class EsameController {
    
 	 @RequestMapping(value="/admin/esame/{id}", method= RequestMethod.GET)
 	    public String deleteEsame(@PathVariable("id")Long id, Model model) {
-//			logger.debug("inzio eliminazione");
 	    		this.esameService.deletedEsame(id);
-	    	//	logger.debug("esame cancellato");
 	    		model.addAttribute("esami",this.esameService.tutti());
 	        	model.addAttribute("role", this.esameService.getCredentialsService().getRoleAuthenticated());
 

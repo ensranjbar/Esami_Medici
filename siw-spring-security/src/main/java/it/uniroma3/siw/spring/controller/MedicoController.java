@@ -59,9 +59,7 @@ public class MedicoController {
 	
 	 @RequestMapping(value="/admin/medico/{id}", method= RequestMethod.GET)
 	    public String deleteMedico(@PathVariable("id")Long id, Model model) {
-//			logger.debug("inzio eliminazione");
-	    		this.medicoService.deleteMedicoById(id);
-	    	//	logger.debug("medico cancellato");
+	    		this.medicoService.deletedMedico(id);
 	    		model.addAttribute("medici",this.medicoService.tutti());
 	        	model.addAttribute("role", this.medicoService.getCredentialsService().getRoleAuthenticated());
 

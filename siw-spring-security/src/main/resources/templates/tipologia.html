@@ -20,16 +20,6 @@
 			<span th:text="*{descrizione}">qui-va-orario</span>
 			<span th:text="*{prerequisito}">qui-va-corso</span>
    		</div>
-
-		<!--	<ul>
-               <li th:each="esame : ${tipologia.esami}">
-                <a href="tipologia.html" 
-                   th:href="@{'/esame' + '/' + ${esame.id}}"
-                   th:text="${esame.nome}"> </a>
-                   <div><br><br></div>
-               </li>
-           </ul> -->
-
 		<div th:unless="${tipologia}">Non esiste</div>
 		<!-- <div th:if="${#authorization.expression('isAuthenticated()')}">  -->
 		<div>

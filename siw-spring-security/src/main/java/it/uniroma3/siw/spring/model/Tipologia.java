@@ -34,5 +34,13 @@ public class Tipologia {
 	
 	@OneToMany(mappedBy="tipologia",cascade=CascadeType.ALL)
 	private List <Prerequisito> prerequisito;
+
+	@Override
+	public String toString() {
+		return "Tipologia [id=" + id + ", nome=" + nome + ", descrizione=" + descrizione + ", costo=" + costo
+				+ ", prerequisito=" + prerequisito + "]";
+	}
+
+	
 	
 }

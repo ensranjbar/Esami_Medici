@@ -4,13 +4,13 @@
 	th:replace="fragments/base.html :: headerfiles(title=#{header.prerequisito})">
 </head>
 <body>
-		<div th:if="${role}=='ADMIN'">
+	<div th:if="${role}=='ADMIN'">
 		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
 	</div>
 	<div th:unless="${role}=='ADMIN'">
 		<header th:replace="fragments/base.html :: intestazione"></header>
 	</div>
-	
+
 	<div>
 		<h4 class="t1">Lista di Prerequisiti</h4>
 		<ul>
@@ -19,7 +19,8 @@
 				th:href="@{'/prerequisito' + '/' + ${prerequisito.id}}"
 				th:text="|${prerequisito.nome} ${prerequisito.valore}|">qui-va-nome-valore</a>
 				<div>
-					    <a class="btn" th:href="@{'/admin/prerequisito' + '/' + ${prerequisito.id}}">elimina</a>
+					<a class="btn"
+						th:href="@{'/admin/prerequisito' + '/' + ${prerequisito.id}}">elimina</a>
 				</div></li>
 		</ul>
 		<br>
