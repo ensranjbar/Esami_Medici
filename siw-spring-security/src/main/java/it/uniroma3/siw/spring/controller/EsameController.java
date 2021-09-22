@@ -5,6 +5,8 @@ import java.time.LocalDate;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.spring.controller.validator.EsameValidator;
+import it.uniroma3.siw.spring.model.Credentials;
 import it.uniroma3.siw.spring.model.Esame;
 import it.uniroma3.siw.spring.model.User;
+import it.uniroma3.siw.spring.service.CredentialsService;
 import it.uniroma3.siw.spring.service.EsameService;
 
 @Controller
@@ -23,6 +27,8 @@ public class EsameController {
 	
 	@Autowired
 	private EsameService esameService;
+	@Autowired
+	private CredentialsService credentialsService;
 	
     @Autowired
     private EsameValidator esameValidator;
@@ -60,10 +66,14 @@ public class EsameController {
     	
 
 }
-  @RequestMapping(value = "/esame", method = RequestMethod.GET)
-    public String getEsami(Model model) {
-    		model.addAttribute("esami", this.esameService.tutti());
-    		return "esami";
+    
+    @RequestMapping(value = "/esame", method = RequestMethod.GET)
+    public String mostraPrenotazioniDellUtente(Model model) {
+    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Credentials credentials = this.credentialsService.getCredentials(userDetails.getUsername());
+        User cliente = credentials.getUser();
+        model.addAttribute("esami", this.esameService.listaPUtente(cliente.getId()));
+    	return "esami";
     }
 
     

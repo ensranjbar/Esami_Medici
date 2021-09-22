@@ -106,4 +106,8 @@ public class EsameService {
 		
 	}
 
+	public List<Esame> listaPUtente(Long id) {
+		return (List<Esame>) esameRepository.findByUser(id);
+	}
+
 }
