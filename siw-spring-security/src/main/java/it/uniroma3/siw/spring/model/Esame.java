@@ -26,16 +26,22 @@ public class Esame {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column
+	private String codice;
+	
 	//data orarioPrenotazione
 	@Column(nullable = false)
-	@DateTimeFormat(pattern = "yyyy-MM-dd") // HH:mm:ss
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataPrenotazione;
 
 	//dataOrarioEsame
 	@Column(nullable = false)
-	@DateTimeFormat(pattern = "yyyy-MM-dd") // HH:mm:ss
-	private LocalDate dataEsame;//string
+	@DateTimeFormat(pattern = "yyyy-MM-dd") 
+	private LocalDate dataEsame;
 	
+	@Column(nullable = false)
+	@DateTimeFormat(pattern = "HH:mm")
+	private LocalTime orarioEsame;
 
 	@OneToMany(mappedBy="esame",cascade=CascadeType.ALL)
 	private List <Risultato> risultati;
@@ -51,8 +57,9 @@ public class Esame {
 
 	@Override
 	public String toString() {
-		return "Esame [id=" + id + ", dataPrenotazione=" + dataPrenotazione + ", dataEsame=" + dataEsame
-				+ ", risultati=" + risultati + ", paziente=" + paziente + ", medico=" + medico + "]";
+		return "Esame [id=" + id + ", codice=" + codice + ", dataPrenotazione=" + dataPrenotazione + ", dataEsame="
+				+ dataEsame + ", orarioEsame=" + orarioEsame + ", risultati=" + risultati + ", paziente=" + paziente
+				+ ", medico=" + medico + "]";
 	}
 	
 

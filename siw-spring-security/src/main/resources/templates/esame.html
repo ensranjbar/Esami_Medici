@@ -13,8 +13,10 @@
     	<h4 class="t1"></h4>
     	
     	<div class="t2" th:if="${esame}" th:object="${esame}">
+    		<span th:text="*{codice}">qui-va-codice</span>
 			<span th:text="*{dataPrenotazione}">qui-va-dataPrenotazione</span>
 			<span th:text="*{dataEsame}">qui-va-dataEsame</span>
+			<span th:text="*{orarioEsame}">qui-va-orarioEsame</span>
    		</div>
     	<div th:unless="${esame}">Non esiste</div>
      	<div><div th:if="${session.role}=='ADMIN'">
