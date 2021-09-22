@@ -36,7 +36,7 @@ public class EsameController {
     @RequestMapping(value="/admin/esame", method = RequestMethod.GET)
     public String addEsame(Model model) {
     	model.addAttribute("esame", new Esame());
-    	model.addAttribute("pazienti", this.esameService.getUserService().tutti());
+    	model.addAttribute("pazienti", this.esameService.getUserService().listaPazienti());
     	model.addAttribute("medici", this.esameService.getMedicoService().tutti());
     	model.addAttribute("tipologie", this.esameService.getTipologiaService().tutti());
         return "esameForm";

@@ -63,4 +63,8 @@ public class UserService {
 	public User inserisci(User user) {
 		return userRepository.save(user);
 	}
+
+	public List<User> listaPazienti() {
+		return (List<User>) userRepository.findPazienti();
+	}
 }
