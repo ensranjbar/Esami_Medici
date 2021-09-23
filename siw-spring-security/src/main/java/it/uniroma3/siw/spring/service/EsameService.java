@@ -109,5 +109,9 @@ public class EsameService {
 	public List<Esame> listaPUtente(Long id) {
 		return (List<Esame>) esameRepository.findByUser(id);
 	}
+	
+	public List<Esame> listaPMedico(Long id) {
+		return (List<Esame>) esameRepository.findByMedico(id);
+	}
 
 }

@@ -34,7 +34,7 @@
 					</div>
 					
 							<div> <label>Prerequisito: </label> <select id="prerequisito"
-								th:field="*{prerequisito}" required>
+								th:field="*{prerequisiti}" required>
 									<option th:each="prerequisito : ${prerequisiti}" th:value="${prerequisito.id}"
 										th:text="${prerequisito.nome}"></option>
 							</select>

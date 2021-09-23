@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import it.uniroma3.siw.spring.controller.validator.MedicoValidator;
 
 import it.uniroma3.siw.spring.model.Medico;
-
+import it.uniroma3.siw.spring.service.EsameService;
 import it.uniroma3.siw.spring.service.MedicoService;
 
 @Controller
@@ -22,6 +22,8 @@ public class MedicoController {
 
 	@Autowired
 	private MedicoService medicoService;
+	@Autowired
+	private EsameService esameService;
 
 	@Autowired
 	private MedicoValidator medicoValidator;
@@ -35,6 +37,7 @@ public class MedicoController {
 	@RequestMapping(value = "/medico/{id}", method = RequestMethod.GET)
 	public String getMedico(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("medico", this.medicoService.medicoPerId(id));
+		model.addAttribute("esami", this.esameService.listaPMedico(id));
 	//model.addAttribute("role", this.medicoService.getCredentialsService().getRoleAuthenticated());
 		return "medico";
 	}

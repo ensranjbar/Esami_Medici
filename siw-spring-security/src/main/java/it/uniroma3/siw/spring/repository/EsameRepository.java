@@ -18,4 +18,7 @@ public interface EsameRepository extends CrudRepository<Esame, Long> {
 
 	@Query(value="select * from esame where paziente_id=?1",nativeQuery=true)
     public List<Esame> findByUser(Long id);
+	
+	@Query(value="select * from esame where medico_id=?1", nativeQuery=true)
+	public List<Esame> findByMedico(Long id);
 }

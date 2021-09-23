@@ -19,9 +19,9 @@
 		<span th:text="*{specializzazione}">qui-va-specializzazione</span>
 	</div>
 	<ul>
-		<li th:each="esame : ${medico.esami}"><a href="esame.html"
+		<li th:each="esame : ${esami}"><a href="esame.html"
 			th:href="@{'/esame' + '/' + ${esame.id}}"
-			th:text="${esame.tipologia}"> </a>
+			th:text="${esame.codice}"> </a>
 			<div>
 				<br> <br>
 			</div></li>
