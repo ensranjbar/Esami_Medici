@@ -34,8 +34,7 @@
 							<option th:each="medico : ${medici}"
 							th:value="${medico.id}" th:text="${medico.cognome}"></option>
 						</select>
-					</div> 
-					
+					</div>
 					 <div>
 						<span>Paziente: </span> 
 							<select id="paziente" th:field="*{paziente}" required>
