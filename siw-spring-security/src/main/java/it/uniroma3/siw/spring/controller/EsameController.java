@@ -1,10 +1,12 @@
 package it.uniroma3.siw.spring.controller;
 
 import java.time.LocalDate;
+import java.util.List;
 
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -49,24 +51,30 @@ public class EsameController {
 
     	return "esame";
     }
-
-    @RequestMapping(value = "/admin/modEsame/{id}", method = RequestMethod.GET)
-    public String modEsame(@PathVariable("id") Long id, Model model) {
-    	model.addAttribute("esame", this.esameService.esameById(id));
-    	model.addAttribute("role", this.esameService.getCredentialsService().getRoleAuthenticated());
-
-    	return "esameFormMod";
-    }
-    @RequestMapping(value ="/admin/esameUpdate")
-    public String updateEsame(@ModelAttribute("esame")Esame esame,
-    		Model model, BindingResult bindingResult){
-    	this.esameService.inserisci(esame);
-    	
-    	return "esami";
-    	
-
-}
     
+    /* @RequestMapping(value = "/esame+?1", method = RequestMethod.GET)
+    public String cercaEsame(Model model, @Param("keyword") String keyword) {
+    	Long id = this.esameService.ricerca(keyword);
+        model.addAttribute("id", id);
+        model.addAttribute("keyword", keyword);
+         
+        return "redirect:/esame";
+    } */
+    
+    @RequestMapping(value = "/esame/{keyword}", method = RequestMethod.GET)
+    public String getEsameCodice(@Param("keyword") String keyword, Model model) {
+    	if(this.esameService.esameByCodice(keyword) != null) {
+    	  model.addAttribute("esame", this.esameService.esameByCodice(keyword));
+    	  model.addAttribute("keyword", keyword);
+    	//model.addAttribute("role", this.esameService.getCredentialsService().getRoleAuthenticated());
+    	  return "esame";
+    	}
+    	else
+    		keyword = "nessun esame corrispondente";
+    		model.addAttribute("keyword", keyword);
+    		return "admin/home";
+    }
+   
     @RequestMapping(value = "/esame", method = RequestMethod.GET)
     public String mostraPrenotazioniDellUtente(Model model) {
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -97,6 +105,22 @@ public class EsameController {
 	        	model.addAttribute("role", this.esameService.getCredentialsService().getRoleAuthenticated());
 
 	    		return "esami";	
+	    }
+	 
+	    @RequestMapping(value = "/admin/modEsame/{id}", method = RequestMethod.GET)
+	    public String modEsame(@PathVariable("id") Long id, Model model) {
+	    	model.addAttribute("esame", this.esameService.esameById(id));
+	    	model.addAttribute("role", this.esameService.getCredentialsService().getRoleAuthenticated());
+
+	    	return "esameFormMod";
+	    }
+	    
+	    @RequestMapping(value ="/admin/esameUpdate")
+	    public String updateEsame(@ModelAttribute("esame")Esame esame,
+	    		Model model, BindingResult bindingResult){
+	    	this.esameService.inserisci(esame);
+	    	
+	    	return "esami";
 	    }
 
   

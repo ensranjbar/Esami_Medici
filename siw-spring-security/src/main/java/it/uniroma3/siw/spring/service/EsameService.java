@@ -38,6 +38,11 @@ public class EsameService {
 	}
 	
 	@Transactional
+	public Long ricerca(String keyword) {
+		return esameRepository.search(keyword);
+	}
+	
+	@Transactional
 	public Esame esameById(Long id) {
 		Optional<Esame> optional = esameRepository.findById(id);
 		if (optional.isPresent())
@@ -56,6 +61,15 @@ public class EsameService {
 	@Transactional
 	public Esame esameByMedico(Medico medico) {
 		Optional<Esame> optional = esameRepository.findByMedico(medico);
+		if (optional.isPresent())
+			return optional.get();
+		else 
+			return null;
+	}
+	
+	@Transactional
+	public Esame esameByCodice(String keyword) {
+		Optional<Esame> optional = esameRepository.findByCodice(keyword);
 		if (optional.isPresent())
 			return optional.get();
 		else 

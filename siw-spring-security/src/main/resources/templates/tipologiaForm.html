@@ -35,14 +35,12 @@
 			
 							<div>
 						<span>Prerequisiti: </span>
-						<select>
 						<input type="checkbox" name="roles"
 						th:each="prerequisito : ${prerequisiti}" 
 						th:text="${prerequisito.nome}"
 						th:value="${prerequisito.id}"
 						th:field="*{prerequisiti}"
 						/>
-						</select>
 					</div>
 					<span><button type="submit">Invio</button></span>
 				</div>
