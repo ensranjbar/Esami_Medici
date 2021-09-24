@@ -12,6 +12,10 @@
 	</div>
 
 	<h4 class="t1"></h4>
+	 <div>
+		<img th:src="@{${medico.photosImagePath}}" width="120" height="168"
+			alt="">
+	</div> 
 
 	<div class="t2" th:if="${medico}" th:object="${medico}">
 		<span th:text="*{nome}">qui-va-nome</span> 

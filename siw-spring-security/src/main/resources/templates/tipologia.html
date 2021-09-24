@@ -13,6 +13,10 @@
 
 	<div>
 		<h4 class="t1"></h4>
+		 <div>
+		<img th:src="@{${tipologia.photosImagePath}}" width="120" height="168"
+			alt="">
+	</div> 
 
 	<div class="t2" th:if="${tipologia}" th:object="${tipologia}">
 			<span th:text="*{nome}">qui-va-durata</span>

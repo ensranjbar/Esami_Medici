@@ -11,7 +11,7 @@
 				<h4 class="t1">Inserisci i dati di un tipologia di Esame</h4>
 			</div>
 			<form th:action="@{/admin/tipologia}" method="POST"
-				th:object="${tipologia}">
+				th:object="${tipologia}" enctype="multipart/form-data">
 				<div th:if="${#fields.hasGlobalErrors()}">
 					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 				</div>
@@ -32,25 +32,28 @@
 							th:field="*{costo}" /></span> <span
 							th:if="${#fields.hasErrors('costo')}" th:errors="*{costo}"></span>
 
-			
-							<div>
-						<span>Prerequisiti: </span>
-						<input type="checkbox" name="roles"
-						th:each="prerequisito : ${prerequisiti}" 
-						th:text="${prerequisito.nome}"
-						th:value="${prerequisito.id}"
-						th:field="*{prerequisiti}"
-						/>
+
+						<div>
+							<span>Prerequisiti: </span> <input type="checkbox" name="roles"
+								th:each="prerequisito : ${prerequisiti}"
+								th:text="${prerequisito.nome}" th:value="${prerequisito.id}"
+								th:field="*{prerequisiti}" />
+						</div>
+						<div>
+
+							<label>Photos: </label> <input type="file" name="image"
+								accept="image/png, image/jpeg" />
+
+						</div>
+						<span><button type="submit">Invio</button></span>
 					</div>
-					<span><button type="submit">Invio</button></span>
-				</div>
 			</form>
 		</div>
 	</div>
 </body>
 </html>
 
-					<!-- </div>
+<!-- </div>
 					
 							<div> <label>Prerequisito: </label> <select id="prerequisito"
 								th:field="*{prerequisiti}" required>
@@ -59,8 +62,8 @@
 							</select>
 							</div> -->
 
-					
-					<!-- <div>
+
+<!-- <div>
 				<span>Prerequisito: </span> 
 				<select id="prerequisito" th:field="*{prerequisito}" required>
 				<option th:each="prerequisito : ${prerequisiti}"
