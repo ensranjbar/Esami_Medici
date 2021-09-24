@@ -10,7 +10,7 @@
 			<div>
 				<h4 class="t1">Inserisci i dati di un medico</h4>
 			</div>
-			<form th:action="@{/admin/medico}" method="POST"
+			<form th:action="@{/admin/mediciSave}" method="POST"
 				th:object="${medico}" enctype="multipart/form-data">
 				<div th:if="${#fields.hasGlobalErrors()}">
 					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>

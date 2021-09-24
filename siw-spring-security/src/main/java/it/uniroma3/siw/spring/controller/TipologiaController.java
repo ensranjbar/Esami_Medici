@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.controller;
 
+import java.io.IOException;
+
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +10,20 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.util.StringUtils;
 
+import it.uniroma3.siw.FileUploadApplication;
 import it.uniroma3.siw.spring.controller.validator.TipologiaValidator;
+import it.uniroma3.siw.spring.model.Medico;
 import it.uniroma3.siw.spring.model.Prerequisito;
 import it.uniroma3.siw.spring.model.Tipologia;
 import it.uniroma3.siw.spring.model.User;
+import it.uniroma3.siw.spring.repository.TipologiaRepository;
 import it.uniroma3.siw.spring.service.PrerequisitoService;
 import it.uniroma3.siw.spring.service.TipologiaService;
 
@@ -26,6 +35,8 @@ public class TipologiaController {
 
 	@Autowired
 	private TipologiaValidator tipologiaValidator;
+	@Autowired
+	private TipologiaRepository tipologiaRepository;
 
 	@RequestMapping(value = "/admin/tipologia", method = RequestMethod.GET)
 	public String addTipologia(Model model) {
@@ -47,6 +58,27 @@ public class TipologiaController {
 		//model.addAttribute("role", this.tipologiaService.getCredentialsService().getRoleAuthenticated());
 		return "tipologie";
 	}
+	
+	 @PostMapping("/admin/tipologieSave")
+	    public String saveTipologia(@ModelAttribute Tipologia tipologia,
+	 Model model ,      @RequestParam("image") MultipartFile multipartFile, BindingResult bindingResult) throws IOException {
+	        if(!bindingResult.hasErrors()) { 
+	        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+	        tipologia.setPhotos(fileName);
+	         
+	       Tipologia savedTipologia = tipologiaRepository.save(tipologia);
+	 
+	        String uploadDir = "tipologia-photos/" + savedTipologia.getId();
+	 
+	        FileUploadApplication.saveFile(uploadDir, fileName, multipartFile);
+	        model.addAttribute("tipologie", this.tipologiaService.tutti());
+	        
+	        return "tipologie";}
+	        
+	        else
+	        	return "tipologiaForm";
+	    }
+	
 
 	@RequestMapping(value = "/admin/tipologia", method = RequestMethod.POST)
 	public String addTipologia(@ModelAttribute("tipologia") Tipologia tipologia, Model model,

@@ -10,7 +10,7 @@
 			<div>
 				<h4 class="t1">Inserisci i dati di un tipologia di Esame</h4>
 			</div>
-			<form th:action="@{/admin/tipologia}" method="POST"
+			<form th:action="@{/admin/tipologieSave}" method="POST"
 				th:object="${tipologia}" enctype="multipart/form-data">
 				<div th:if="${#fields.hasGlobalErrors()}">
 					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
