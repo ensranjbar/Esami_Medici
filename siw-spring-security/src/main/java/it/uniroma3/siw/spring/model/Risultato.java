@@ -30,12 +30,7 @@ public class Risultato {
 	@Column(nullable = true)
 	private String documenti;
 
-	/*
-	 * @Transient public String getPhotosImagePath() { if (documenti == null || id
-	 * == null) return null;
-	 * 
-	 * return "/risultato-documenti/" + id + "/" + documenti; }
-	 */
+
 	@OneToOne
 	private Esame esame;
 
