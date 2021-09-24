@@ -10,8 +10,8 @@
 			<div>
 				<h4 class="t1">Inserisci i dati di un risultati di Esame</h4>
 			</div>
-			<form th:action="@{/admin/risultato}" method="POST"
-				th:object="${risultato}">
+			<form th:action="@{/risultatiSave}" method="POST"
+				th:object="${risultato}" enctype="multipart/form-data">
 				<div th:if="${#fields.hasGlobalErrors()}">
 					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 				</div>
@@ -32,6 +32,10 @@
 							<option th:each="esame : ${esami}" th:value="${esame.id}"
 								th:text="${esame.tipologia}"></option>
 						</select>
+					</div>
+					<div>
+						<label>Document: </label> <input type="file" name="documentFile"
+							required />
 					</div>
 
 

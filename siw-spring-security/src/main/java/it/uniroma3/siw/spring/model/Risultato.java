@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.model;
 
+import java.beans.Transient;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +27,15 @@ public class Risultato {
 	@Column(nullable = false)
 	private String Valore;
 	
+	@Column(nullable = true)
+	private String documenti;
 
+	/*
+	 * @Transient public String getPhotosImagePath() { if (documenti == null || id
+	 * == null) return null;
+	 * 
+	 * return "/risultato-documenti/" + id + "/" + documenti; }
+	 */
 	@OneToOne
 	private Esame esame;
 
