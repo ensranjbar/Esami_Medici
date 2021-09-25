@@ -61,7 +61,7 @@ public class EsameController {
         return "redirect:/esame";
     } */
     
-    @RequestMapping(value = "/esame/{keyword}", method = RequestMethod.GET)
+    @RequestMapping(value = "/esamee/{keyword}", method = RequestMethod.GET)
     public String getEsameCodice(@Param("keyword") String keyword, Model model) {
     	if(this.esameService.esameByCodice(keyword) != null) {
     	  model.addAttribute("esame", this.esameService.esameByCodice(keyword));
@@ -83,7 +83,12 @@ public class EsameController {
         model.addAttribute("esami", this.esameService.listaPUtente(cliente.getId()));
     	return "esami";
     }
-
+    
+    @RequestMapping(value = "/listaEsami", method = RequestMethod.GET)
+    public String mostraEsami(Model model) {
+        model.addAttribute("esami", this.esameService.tutti());
+    	return "esami";
+    }
     
     @RequestMapping(value = "/admin/esame", method = RequestMethod.POST)
     public String newEsame(@ModelAttribute("esame") Esame esame, 

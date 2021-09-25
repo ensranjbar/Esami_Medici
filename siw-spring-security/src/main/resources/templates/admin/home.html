@@ -5,7 +5,7 @@
 	<header th:replace="fragments/baseadmin.html :: intestazione"></header>
 	<div class="t4">
     <div>
-  		  <form th:action="@{/esame/{keyword}}">
+  		  <form th:action="@{/esamee/{keyword}}">
    		  Cerca esame: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
     	  &nbsp;
    		 <input type="submit" value="Search" />
@@ -13,7 +13,7 @@
 		</form>
     	<h4 class="t1" >Lista di comandi</h4>
 		<div class="highlight">
-			<a th:href="@{/esame}">Elenco Esami</a>
+			<a th:href="@{/listaEsami}">Elenco Esami</a>
    		</div>
    		<div class="highlight">
 			<a th:href="@{/tipologia}">Elenco tipologie di Esami</a>
