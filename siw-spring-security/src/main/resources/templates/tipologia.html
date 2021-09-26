@@ -19,10 +19,10 @@
 	</div> 
 
 	<div class="t2" th:if="${tipologia}" th:object="${tipologia}">
-			<span th:text="*{nome}">qui-va-durata</span>
-			<span th:text="*{costo}">qui-va-data</span>
-			<span th:text="*{descrizione}">qui-va-orario</span>
-			<span th:text="*{prerequisiti}">qui-va-corso</span>
+			<h6> Nome:<span th:text="*{nome}">qui-va-durata</span></h6>
+			<h6> Costo:<span th:text="*{costo}">qui-va-data</span>$</h6>
+			<h6> Descrizione:<span th:text="*{descrizione}">qui-va-orario</span></h6>
+		<!-- 	<span th:text="*{prerequisiti}">qui-va-corso</span> -->
    		</div>
 		<div th:unless="${tipologia}">Non esiste</div>
 		<!-- <div th:if="${#authorization.expression('isAuthenticated()')}">  -->

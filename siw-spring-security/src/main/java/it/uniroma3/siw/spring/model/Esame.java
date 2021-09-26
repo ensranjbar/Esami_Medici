@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.persistence.OneToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -43,8 +43,8 @@ public class Esame {
 	@DateTimeFormat(pattern = "HH:mm")
 	private LocalTime orarioEsame;
 
-	@OneToMany(mappedBy="esame",cascade=CascadeType.ALL)
-	private List <Risultato> risultati;
+	@OneToOne
+	private Risultato risultato;
 	
 	@ManyToOne
 	private User paziente;
@@ -58,7 +58,7 @@ public class Esame {
 	@Override
 	public String toString() {
 		return "Esame [id=" + id + ", codice=" + codice + ", dataPrenotazione=" + dataPrenotazione + ", dataEsame="
-				+ dataEsame + ", orarioEsame=" + orarioEsame + ", risultati=" + risultati + ", paziente=" + paziente
+				+ dataEsame + ", orarioEsame=" + orarioEsame + ", risultato=" + risultato + ", paziente=" + paziente
 				+ ", medico=" + medico + "]";
 	}
 	

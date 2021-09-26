@@ -12,23 +12,23 @@
 	</div>
 
 	<h4 class="t1"></h4>
-	 <div>
+	<div>
 		<img th:src="@{${medico.photosImagePath}}" width="120" height="168"
 			alt="">
-	</div> 
+	</div>
 
 	<div class="t2" th:if="${medico}" th:object="${medico}">
-		<span th:text="*{nome}">qui-va-nome</span> 
-		<span th:text="*{cognome}">qui-va-cognome</span>
+		<span th:text="*{nome}">qui-va-nome</span> <span th:text="*{cognome}">qui-va-cognome</span>
 		<span th:text="*{specializzazione}">qui-va-specializzazione</span>
-	</div>
-	<ul>
 		<li th:each="esame : ${esami}"><a href="esame.html"
-			th:href="@{'/esame' + '/' + ${esame.id}}"
-			th:text="${esame.codice}"> </a>
+			th:href="@{'/esame' + '/' + ${esame.id}}" th:text="${esame.codice}">
+		</a>
 			<div>
 				<br> <br>
 			</div></li>
+	</div>
+	<ul>
+
 	</ul>
 	<div th:unless="${medico}">Non esiste</div>
 	<div th:if="${session.role}=='ADMIN'">

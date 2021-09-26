@@ -13,9 +13,13 @@
     	<h4 class="t1"></h4>
     	
     	<div class="t2" th:if="${risultato}" th:object="${risultato}">
-			<span th:text="*{nome}">qui-va-nome</span>
-			<span th:text="*{valore}">qui-va-descrizione</span>
-			<!--<span th:text="*{esame}">qui-va-esame</span>-->
+			<h6>
+				Nome :<span th:text="*{nome}">qui-va-nome</span></h6>
+			<h6>
+				Valore :<span th:text="*{valore}">qui-va-descrizione</span></h6>
+			<h6>
+				Esame : <span th:text="|*{esame.codice}|"></span>
+			</h6>
 		
 
    		</div>

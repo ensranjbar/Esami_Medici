@@ -15,7 +15,7 @@
 			<li class="t1" th:each="esame : ${esami}">
 				<a href="esame.html"
 				   th:href="@{'/esame' + '/' + ${esame.id}}" 
-				   th:text="|${esame.codice}  ${esame.dataPrenotazione} ">qui-vanno-date-tipologia</a>
+				   th:text="|${esame.codice}  ${esame.dataPrenotazione}">qui-vanno-date-tipologia</a>
 				   	<div>
     		<a class="btn" th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a>
     	  </div>
