@@ -10,48 +10,48 @@
 	<div th:unless="${role}=='ADMIN'">
 		<header th:replace="fragments/base.html :: intestazione"></header>
 	</div>
-
+<div class="t5">
 	<div>
 		<h4 class="t1"></h4>
 
-		<div class="t2" th:if="${esame}" th:object="${esame}">
-			<h6>
+		<div th:if="${esame}" th:object="${esame}">
+			<h6 class="t1">
 				Codice: <span th:text="*{codice}">qui-va-codice</span>
 			</h6>
-			<h6>
+			<h6 class="t1">
 				Data di prenotazione: <span th:text="*{dataPrenotazione}">qui-va-dataPrenotazione</span>
 			</h6>
-			<h6>
+			<h6 class="t1">
 				Data dell'Esame <span th:text="*{dataEsame}">qui-va-dataEsame</span>
 			</h6>
-			<h6>
-				Orario dell'esame <span th:text="*{orarioEsame}">qui-va-orarioEsame</span>
-			</h6>
-			<h6>
+			<h6 class="t1">
+				Orario dell'esame:    <span th:text="*{orarioEsame}">qui-va-orarioEsame</span>
+			</h6 >
+			<h6 class="t1">
 				Medico : <span th:text="|*{medico.nome} *{medico.cognome}|"></span>
 			</h6>
-			<h6>
+			<h6 class="t1">
 				Tipologia : <span
 					th:text="|*{tipologia.nome} *{tipologia.descrizione} *{tipologia.costo}|"></span>$
 			</h6>
-			<h6>
+			<h6 class="t1">
 				Paziente : <span
 					th:text="|*{paziente.nome} *{paziente.cognome}|"></span>
 			</h6>
-
+</div>
 
 		</div>
 		<div th:unless="${esame}">Non esiste</div>
 		<div>
 			<div th:if="${session.role}=='ADMIN'">
-				<a class="btn" th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a>
+				<a  th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a>
 			</div>
 		</div>
-	</div>
+	
 	<div th:if="${session.role}=='ADMIN'">
-		<a class="btn" th:href="@{'/admin/risultato' + '/' + ${esame.id}}">inserisci</a>
+		<a  th:href="@{'/admin/risultato' + '/' + ${esame.id}}">inserisci</a>
 	</div>
-
+</div>
 
 
 </body>

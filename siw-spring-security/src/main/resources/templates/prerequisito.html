@@ -10,7 +10,7 @@
 	<div th:unless="${role}=='ADMIN'">
 		<header th:replace="fragments/base.html :: intestazione"></header>
 	</div>
-
+<div class="t5">
 	<h4 class="t1"></h4>
 
 	<div class="t2" th:if="${prerequisito}" th:object="${prerequisito}">
@@ -19,17 +19,18 @@
 	</div>
 
 	<div th:unless="${prerequisito}">Non esiste</div>
-	<div th:if="${user.role}=='ADMIN'">
+	<!-- <div th:if="${user.role}=='ADMIN'">
 		<form action="#" th:object="${prerequisito}"
 			th:action="@{/admin/prerequisito/{id}(id=${prerequisito.id})}">
 			<input type="hidden" name="_method" value="delete">
 			<button type="submit" id="submitButton">Aggiorna i dati</button>
 		</form>
+		</div> -->
 		<div th:if="${session.role}=='ADMIN'">
-			<a class="btn"
+			<a
 				th:href="@{'/admin/prerequisito' + '/' + ${prerequisito.id}}">elimina</a>
-
-		</div>
+</div>
+		
 	</div>
 	<footer th:replace="fragments/base.html :: fondo"></footer>
 </body>

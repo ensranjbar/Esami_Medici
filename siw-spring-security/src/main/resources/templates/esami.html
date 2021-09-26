@@ -2,25 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/baseadmin.html :: headerfiles(title=#{header.esami})"> </head>
 <body>
+
 		<div th:if="${role}=='ADMIN'">
 		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
 	</div>
 	<div th:unless="${role}=='ADMIN'">
 		<header th:replace="fragments/base.html :: intestazione"></header>
 	</div>
-	
+	<div class="t4">
 	<div>
     	<h4 class="t1">Lista di Esami</h4>
 		<ul>
-			<li class="t1" th:each="esame : ${esami}">
+			<li  th:each="esame : ${esami}">
 				<a href="esame.html"
 				   th:href="@{'/esame' + '/' + ${esame.id}}" 
 				   th:text="|${esame.codice}  ${esame.dataPrenotazione}">qui-vanno-date-tipologia</a>
 				   	<div>
-    		<a class="btn" th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a>
+    		<a class="cta" th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a>
     	  </div>
 			</li>
 		</ul>
+	</div>
 	</div>
 </body>
 </html>

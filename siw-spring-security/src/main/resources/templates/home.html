@@ -4,7 +4,8 @@
 	<head th:replace="fragments/base.html :: headerfiles(title='userHome')"> </head>
 <body>
 	<header th:replace="fragments/base.html :: intestazione"></header>
-    <div>
+    <div><div class="t5">
+    <h4 class="t1">pagina Personale</h4>
    
 		<div class="highlight">
 			<a href="esame" th:href="@{/esame}">Le mie prenotazioni </a>
@@ -20,7 +21,7 @@
 			<a th:href="@{/logout}">Logout</a>
    		</div>
    		
-    </div>
+    </div></div>
     <footer th:replace="fragments/base.html :: fondo(home='/default')"></footer>
 </body>
 </html>
