@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import it.uniroma3.siw.spring.controller.validator.EsameValidator;
 import it.uniroma3.siw.spring.model.Credentials;
 import it.uniroma3.siw.spring.model.Esame;
+import it.uniroma3.siw.spring.model.Risultato;
 import it.uniroma3.siw.spring.model.User;
 import it.uniroma3.siw.spring.service.CredentialsService;
 import it.uniroma3.siw.spring.service.EsameService;
+import it.uniroma3.siw.spring.service.RisultatoService;
 
 @Controller
 public class EsameController {
@@ -31,7 +33,8 @@ public class EsameController {
 	private EsameService esameService;
 	@Autowired
 	private CredentialsService credentialsService;
-	
+	@Autowired
+	private RisultatoService risultatoService;
     @Autowired
     private EsameValidator esameValidator;
         
@@ -112,7 +115,27 @@ public class EsameController {
 	    		return "esami";	
 	    }
 	 
-	    @RequestMapping(value = "/admin/modEsame/{id}", method = RequestMethod.GET)
+     @RequestMapping(value="/admin/esame/{id}/risultato", method= RequestMethod.GET)
+     public String aggiungiRisultato(@PathVariable("id")Long id, Model model) {
+          model.addAttribute("risultato", new Risultato());
+         model.addAttribute("pazienti", this.esameService.getUserService().listaPazienti());
+         model.addAttribute("medici", this.esameService.getMedicoService().tutti());
+         model.addAttribute("tipologie", this.esameService.getTipologiaService().tutti());
+         model.addAttribute("esame", this.esameService.esameById(id));
+         return "aggiungiRisultato";
+     }
+
+     @RequestMapping(value="/admin/esame/{id}/risultato", method= RequestMethod.POST)
+     public String aggiungiRisultato(@ModelAttribute("risultato") Risultato risultato, @PathVariable("id")Long id, Model model ) {
+         Esame esame = this.esameService.esameById(id);
+        // this.risultatoService.inserisci(risultato);
+         risultato.setEsame(esame);
+         esame.setRisultato(risultato);
+         this.esameService.inserisci(esame);
+         return "redirect:/esame/"+id;
+     }
+	 
+	   @RequestMapping(value = "/admin/modEsame/{id}", method = RequestMethod.GET)
 	    public String modEsame(@PathVariable("id") Long id, Model model) {
 	    	model.addAttribute("esame", this.esameService.esameById(id));
 	    	model.addAttribute("role", this.esameService.getCredentialsService().getRoleAuthenticated());

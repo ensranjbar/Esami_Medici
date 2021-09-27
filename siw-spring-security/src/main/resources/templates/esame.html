@@ -4,10 +4,10 @@
 	th:replace="fragments/baseadmin.html :: headerfiles(title=#{pageTitle.esame})">
 </head>
 <body>
-	<div th:if="${session.role}=='ADMIN'">
+	<div th:if="${role}=='ADMIN'">
 		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
 	</div>
-	<div th:unless="${session.role}=='ADMIN'">
+	<div th:unless="${role}=='ADMIN'">
 		<header th:replace="fragments/base.html :: intestazione"></header>
 	</div>
 <div class="t5">
@@ -38,14 +38,22 @@
 				Paziente : <span
 					th:text="|*{paziente.nome} *{paziente.cognome}|"></span>
 			</h6>
+			<div th:if="*{risultato} != null">
+			<h6 class="t1">
+				Risultato : <span
+					th:text="|*{risultato.risultatoDescrizione}|"></span>
+			</h6> 
+		   </div>
 </div>
 
 		</div>
 		<div th:unless="${esame}">Non esiste</div>
-		<div>
-			<div th:if="${session.role}=='ADMIN'">
+		<div th:if="${session.role}=='ADMIN'">
 				<a  th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a>
-			</div>
+		</div>
+		<div th:if="${session.role}=='ADMIN'">
+			<div th:object="${esame}" method="GET">
+            <a  th:href="@{'/admin/esame'+'/'+ *{id}+'/risultato'}" >Aggiungi un risultato</a></div>
 		</div>
 	
 	<div th:if="${session.role}=='ADMIN'">

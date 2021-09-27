@@ -8,9 +8,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import it.uniroma3.siw.spring.model.Esame;
 import it.uniroma3.siw.spring.model.Risultato;
-import it.uniroma3.siw.spring.service.EsameService;
 import it.uniroma3.siw.spring.service.RisultatoService;
 
 @Component
@@ -22,8 +20,7 @@ public class RisultatoValidator implements Validator {
 
 	@Override
 	public void validate(Object o, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "esame", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "risultatoDescrizione", "required");
 
 		if (!errors.hasErrors()) {
 			logger.debug("confermato: valori non nulli");

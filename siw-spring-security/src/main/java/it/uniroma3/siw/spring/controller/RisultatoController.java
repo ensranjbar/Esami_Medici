@@ -66,7 +66,7 @@ public class RisultatoController {
 		return "risultati";
 	}
 
-	 @PostMapping("/risultatiSave")
+	/*  @PostMapping("/risultatiSave")
 	    public String saveRisultato(@ModelAttribute Risultato risultato,
 	 Model model ,      @RequestParam("documentFile") MultipartFile multipartFile, BindingResult bindingResult) throws IOException {
 	        if(!bindingResult.hasErrors()) { 
@@ -83,8 +83,9 @@ public class RisultatoController {
 	        
 	        else
 	        	return "risultatoForm";
-	    }
-	@RequestMapping(value = "/admin/risultato", method = RequestMethod.POST)
+	    } */
+	
+	/* @RequestMapping(value = "/admin/risultato", method = RequestMethod.POST)
 	public String addRisultato(@ModelAttribute("risultato") Risultato risultato, Model model,
 			BindingResult bindingResult) {
 		this.risultatoValidator.validate(risultato, bindingResult);
@@ -105,5 +106,5 @@ public class RisultatoController {
 	        	model.addAttribute("role", this.risultatoService.getCredentialsService().getRoleAuthenticated());
 
 	    		return "risultati";	
-	    }
+	    } */
 }
