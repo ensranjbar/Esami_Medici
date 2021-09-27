@@ -6,44 +6,44 @@
 	<div class="container">
 		<div class="t5">
 			<div>
-				<h4 class="t1">Inserisci i dati di un esame</h4>
+				<h4 class="login2">Inserisci i dati di un esame</h4>
 			</div>
 			<form th:action="@{esame}" method="POST" th:object="${esame}">
 				<div th:if="${#fields.hasGlobalErrors()}">
 					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 				</div>
 					<div>
-						<span>Codice Prenotazione:</span> <span><input type="text"
+						<div class="login"><span>Codice Prenotazione:</span></div> <span><input type="text"
 							th:field="*{codice}" /></span> <span th:if="${#fields.hasErrors('codice')}"
 							th:errors="*{codice}"></span>
 					</div>
 					
 					<div>
-						<span>DataEsame:</span> 
+						<div class="login"><span>DataEsame:</span> </div>
 						<span><input type="date" th:field="*{dataEsame}" /></span> <span th:if="${#fields.hasErrors('dataEsame')}"
 							th:errors="*{dataEsame}"></span>
 					</div>
 					<div>
-						<span>Orario:</span> <span><input type="time"
+						<div class="login"><span>Orario:</span> </div><span><input type="time"
 							th:field="*{orarioEsame}" /></span> <span th:if="${#fields.hasErrors('orarioEsame')}"
 							th:errors="*{orarioEsame}"></span>
 					</div>
 					<div>
-						<span>Medico: </span> 
+					<div class="login">	<span>Medico: </span> </div>
 							<select id="medico" th:field="*{medico}" required>
 							<option th:each="medico : ${medici}"
 							th:value="${medico.id}" th:text="${medico.cognome}"></option>
 						</select>
 					</div>
 					 <div>
-						<span>Paziente: </span> 
+						<div class="login"><span>Paziente: </span> </div>
 							<select id="paziente" th:field="*{paziente}" required>
 							<option th:each="paziente : ${pazienti}"
 							th:value="${paziente.id}" th:text="${paziente.nome}"></option>
 						</select>
 					</div> 
 					<div>
-						<span>Tipologia: </span> 
+						<div class="login"><span>Tipologia: </span></div>
 							<select id="tipologia" th:field="*{tipologia}" required>
 							<option th:each="tipologia : ${tipologie}"
 							th:value="${tipologia.id}" th:text="${tipologia.nome}"></option>

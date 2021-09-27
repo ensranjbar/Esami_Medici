@@ -10,9 +10,9 @@
 	<div th:unless="${session.role}=='ADMIN'">
 		<header th:replace="fragments/base.html :: intestazione"></header>
 	</div>
-
+<div class="t5">
 	<h4 class="t1"></h4>
-	<div>
+	<div >
 		<img th:src="@{${medico.photosImagePath}}" width="120" height="168"
 			alt="">
 	</div>
@@ -46,7 +46,7 @@
 	<!--  </div> -->
 	<!-- <div th:unless="${#authorization.expression('isAuthenticated()')}"> </div> -->
 	<!--  <div th:unless="${user.role}=='ADMIN'"> </div> -->
-
+</div>
 	<footer th:replace="fragments/base.html :: fondo"></footer>
 </body>
 </html>

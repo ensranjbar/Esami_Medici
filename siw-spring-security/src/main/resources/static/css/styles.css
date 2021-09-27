@@ -89,7 +89,7 @@ button{
 	transition: all 0.3s ease 0s;
 }
 
-input{
+input,select{
 	padding: 9px 25px;
 	background-color: white;
 	border: none;
@@ -105,7 +105,7 @@ button:hover {
 	color: black;
 	font-size: x-large;
 }
-input:hover {
+input,select:hover {
 	background-color: rgba(235, 238, 227, 0.8);
 	color: black;
 	
@@ -152,7 +152,22 @@ input:hover {
 	color:white;
 	text-align: center;
 }
-
+.login {
+	font-family: "Montserrat", sans-serif;
+	position: relative;
+	margin: 0.1em;
+	font-size: 20px;
+	color:white;
+	text-align: center;
+}
+.login2 {
+	font-family: "Montserrat", sans-serif;
+	position: relative;
+	margin: 0.1em;
+	font-size: 30px;
+	color:white;
+	text-align: left;
+}
 .t2 {
 	font-family: "Montserrat", sans-serif;
 	position: absolute;

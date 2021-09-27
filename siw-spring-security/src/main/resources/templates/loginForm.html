@@ -4,16 +4,16 @@
 <body>
 	<header th:replace="fragments/base.html :: intestazione"></header>
 	<div>
-		<h4>Login</h4>
+		
 	</div>
 	<form th:action="@{/login}" method="POST">
-		<div>
-			<div>
-				<span>Username:</span>
+		<div class="t5">
+			<div><h4 class="login2">Login</h4>
+				<div class="login"><span>Username:</span></div>
 				<span><input name="username" type="text" required /></span>
 			</div>		
 			<div>
-				<span>Password:</span>
+				<div class="login"><span>Password:</span></div>
 				<span><input name="password" type="password" required /></span>
 			</div>
 			<div>
