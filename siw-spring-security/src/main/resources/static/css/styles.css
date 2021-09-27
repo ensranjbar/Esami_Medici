@@ -16,7 +16,7 @@ body {
 	
 }
 
-li, a {
+li {
 	font-family: "Montserrat", sans-serif;
 	font-weight: 500;
 	font-size: 25px;
@@ -25,7 +25,16 @@ li, a {
 	align-items: center;
 	
 }
-button {
+ a {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+	font-size: 25px;
+	color: #edf0f1;
+	text-decoration: none;
+	align-items: center;
+	
+}
+button,input {
 	font-family: "Montserrat", sans-serif;
 	font-weight: 500;
 	font-size: 17px;
@@ -70,21 +79,38 @@ header {
 .nav__links li a:hover {
 	color: #161615;
 }
-/* 
-button {
+
+button{
 	padding: 9px 25px;
 	background-color: rgb(44, 41, 54);
 	border: none;
 	border-radius: 50px;
 	cursor: pointer;
 	transition: all 0.3s ease 0s;
-} */
+}
+
+input{
+	padding: 9px 25px;
+	background-color: white;
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	color: black;
+}
+
 
 button:hover {
 	background-color: rgba(235, 238, 227, 0.8);
 	color: black;
 	font-size: x-large;
 }
+input:hover {
+	background-color: rgba(235, 238, 227, 0.8);
+	color: black;
+	
+}
+
 
 .highlight {
 	position: relative;
@@ -123,6 +149,7 @@ button:hover {
 	position: relative;
 	margin: 0.1em;
 	font-size: 30px;
+	color:white;
 	text-align: center;
 }
 
@@ -140,7 +167,7 @@ button:hover {
 }
 
 .t4 {
-	position: absolute;
+	position:absolute;
 	width:700px;
 	height:700px;
 	top: 60%;

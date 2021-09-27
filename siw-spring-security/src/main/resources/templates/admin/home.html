@@ -5,14 +5,14 @@
 	<header th:replace="fragments/baseadmin.html :: intestazione"></header>
 	<div class="t4">
     <div>
-  		  <form th:action="@{/esamee/{keyword}}">
+  		  <form class="t1" th:action="@{/esamee/{keyword}}">
    		  Cerca esame: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
     	  &nbsp;
-   		 <input type="submit" value="Search" />
+   		<input class="t6" type="submit" value="Search" />
    		  &nbsp;
 		</form>
     	<h4 class="t1" >Lista di comandi</h4>
-		<div class="highlight">
+		<!-- <div class="highlight">
 			<a th:href="@{/listaEsami}">Elenco Esami</a>
    		</div>
    		<div class="highlight">
@@ -20,7 +20,7 @@
    		</div>
    		<div class="highlight">
 			<a th:href="@{/medico}">Elenco medici </a>
-   		</div>
+   		</div> -->
    		   		<div class="highlight">
 			<a th:href="@{/admin/tipologia}">Inserisci una nuova tipologia di esame</a>
    		</div>
