@@ -53,7 +53,7 @@
 		</div>
 		<div th:if="${session.role}=='ADMIN'">
 			<div th:object="${esame}" method="GET">
-            <a  th:href="@{'/admin/esame'+'/'+ *{id}+'/risultato'}" >Aggiungi un risultato</a></div>
+            <a  th:href="@{'/admin/esame'+'/'+ *{id}+'/risultato'}" ><button>Aggiungi un risultato</button></a></div>
 		</div>
 	
 </div>

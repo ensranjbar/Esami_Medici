@@ -12,7 +12,8 @@
 	</div>
 	
 	<div class="t5">
-		<h4 class="t1">Lista di risultati</h4>
+		<h4 class="h1">Lista di risultati</h4>
+		<br></br>
 		<ul>
 			<li class="t1" th:each="risultato : ${risultati}"><a
 				href="risultato.html"
@@ -20,7 +21,7 @@
 				th:text="|${risultato.nome} ${risultato.valore}|">qui-va-nome-valore</a>
 				
 				<div><div th:if="${session.role}=='ADMIN'">
-					 <a class="btn" th:href="@{'/admin/risultato' + '/' + ${risultato.id}}">elimina</a></div>
+					 <a class="btn" th:href="@{'/admin/risultato' + '/' + ${risultato.id}}"><button>elimina</button></a></div>
 				</div></li>
 		</ul>
 		<br>

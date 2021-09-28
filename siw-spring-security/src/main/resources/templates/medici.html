@@ -12,7 +12,8 @@
 	</div>
 
 	<div class= "t5">
-		<h4 class="t1">Lista di medici</h4>
+		<h4 class="h1">medici</h4>
+		<br></br>
 		<ul>
 			<li  th:each="medico : ${medici}"><a
 				href="medico.html" th:href="@{'/medico' + '/' + ${medico.id}}"
@@ -21,7 +22,7 @@
 
 				<div>
 					<div th:if="${session.role}=='ADMIN'">
-						<a  th:href="@{'/admin/medico' + '/' + ${medico.id}}">elimina</a>
+						<a  th:href="@{'/admin/medico' + '/' + ${medico.id}}"><button>elimina</button></a>
 					</div>
 				</div></li>
 		</ul>

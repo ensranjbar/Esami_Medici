@@ -11,7 +11,7 @@
 	<div class="t5">
     	<h4 class="login2" >Registra Utente</h4>
 	<form th:action="@{/admin/register}" method="POST">
-    <table>
+   
         <div>
            <div class="login"> <span>Nome Utente</span></div>
             <span><input type="text" placeholder="username" required
@@ -45,7 +45,7 @@
                 <button type="submit">Registra</button>
             </span>
         </div>
-    </table>
+ 
 	</form>
 	</div>
     <footer th:replace="fragments/base.html :: fondo(home='/')"></footer>

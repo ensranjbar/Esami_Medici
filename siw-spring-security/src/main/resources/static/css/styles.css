@@ -111,7 +111,7 @@ input {
 button:hover {
 	background-color: rgba(235, 238, 227, 0.8);
 	color: black;
-	font-size: x-large;
+	
 }
 
 input:hover {
@@ -150,14 +150,21 @@ input:hover {
 	margin-left: auto;
 	margin-right: auto;
 }
-
+.h1 {
+	font-family: "Montserrat", sans-serif;
+	position: relative;
+	margin: 0.3em;
+	font-size: 30px;
+	color: white;
+	text-align: left;
+}
 .t1 {
 	font-family: "Montserrat", sans-serif;
 	position: relative;
 	margin: 0.1em;
-	font-size: 30px;
+	font-size: 20px;
 	color: white;
-	text-align: center;
+	text-align: left;
 }
 .t6 {
 	font-family: "Montserrat", sans-serif;
@@ -176,7 +183,14 @@ input:hover {
 	color: white;
 	text-align: left;
 }
-
+.login3 {
+	font-family: "Montserrat", sans-serif;
+	position: relative;
+  line-height: 80%;
+	font-size: 14px;
+	color: white;
+	text-align: left;
+}
 .login2 {
 	font-family: "Montserrat", sans-serif;
 	position: relative;

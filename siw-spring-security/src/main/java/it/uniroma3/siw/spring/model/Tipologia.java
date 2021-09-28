@@ -29,16 +29,14 @@ public class Tipologia {
 
 	@Column(nullable = false)
 	private float costo;
-	@Column(nullable = true, length = 64)
-	private String photos;
-
-	@Transient
-	public String getPhotosImagePath() {
-		if (photos == null || id == null)
-			return null;
-
-		return "/tipologia-photos/" + id + "/" + photos;
-	}
+	/*
+	 * @Column(nullable = true, length = 64) private String photos;
+	 * 
+	 * @Transient public String getPhotosImagePath() { if (photos == null || id ==
+	 * null) return null;
+	 * 
+	 * return "/tipologia-photos/" + id + "/" + photos; }
+	 */
 
 	@OneToMany(mappedBy = "tipologia", cascade = { CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST })
 	private List<Esame> esami;

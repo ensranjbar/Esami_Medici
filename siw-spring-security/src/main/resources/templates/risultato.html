@@ -36,7 +36,7 @@
     	<div th:unless="${risultato}">Non esiste</div>
     <!-- 	<div th:if="${#authorization.expression('isAuthenticated()')}">  -->
      	<div><div th:if="${session.role}=='ADMIN'">
-    		    <a class="btn" th:href="@{'/admin/risultato' + '/' + ${risultato.id}}">elimina</a></div>
+    		    <a class="btn" th:href="@{'/admin/risultato' + '/' + ${risultato.id}}"><button>elimina</button></a></div>
     	  </div>
     	</div>
 </body>

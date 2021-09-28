@@ -60,26 +60,25 @@ public class TipologiaController {
 		return "tipologie";
 	}
 	
-	 @PostMapping("/admin/tipologieSave")
-	    public String saveTipologia(@ModelAttribute Tipologia tipologia,
-	 Model model ,      @RequestParam("image") MultipartFile multipartFile, BindingResult bindingResult) throws IOException {
-	        if(!bindingResult.hasErrors()) { 
-	        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-	        tipologia.setPhotos(fileName);
-	         
-	       Tipologia savedTipologia = tipologiaRepository.save(tipologia);
-	 
-	        String uploadDir = "tipologia-photos/" + savedTipologia.getId();
-	 
-	        FileUploadApplication.saveFile(uploadDir, fileName, multipartFile);
-	        model.addAttribute("tipologie", this.tipologiaService.tutti());
-	        
-	        return "tipologie";}
-	        
-	        else
-	        	return "tipologiaForm";
-	    }
-	
+	/*
+	 * @PostMapping("/admin/tipologieSave") public String
+	 * saveTipologia(@ModelAttribute Tipologia tipologia, Model model
+	 * , @RequestParam("image") MultipartFile multipartFile, BindingResult
+	 * bindingResult) throws IOException { if(!bindingResult.hasErrors()) { String
+	 * fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+	 * tipologia.setPhotos(fileName);
+	 * 
+	 * Tipologia savedTipologia = tipologiaRepository.save(tipologia);
+	 * 
+	 * String uploadDir = "tipologia-photos/" + savedTipologia.getId();
+	 * 
+	 * FileUploadApplication.saveFile(uploadDir, fileName, multipartFile);
+	 * model.addAttribute("tipologie", this.tipologiaService.tutti());
+	 * 
+	 * return "tipologie";}
+	 * 
+	 * else return "tipologiaForm"; }
+	 */
 
 	@RequestMapping(value = "/admin/tipologia", method = RequestMethod.POST)
 	public String addTipologia(@ModelAttribute("tipologia") Tipologia tipologia, Model model,

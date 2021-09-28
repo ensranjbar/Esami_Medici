@@ -11,14 +11,15 @@
 	</div>
 	<div class="t5">
 	<div>
-    	<h4 class="t1">Lista di Esami</h4>
+    	<h4 class="h1">Lista di esami</h4>
+		<br></br>
 		<ul>
 			<li  th:each="esame : ${esami}">
 				<a href="esame.html"
 				   th:href="@{'/esame' + '/' + ${esame.id}}" 
 				   th:text="|${esame.codice}  ${esame.dataPrenotazione}">qui-vanno-date-tipologia</a>
 				   	<div>
-    		<a class="cta" th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a>
+    		<a class="cta" th:href="@{'/admin/esame' + '/' + ${esame.id}}"><button>elimina</button></a>
     	  </div>
 			</li>
 		</ul>

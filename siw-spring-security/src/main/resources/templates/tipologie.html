@@ -12,7 +12,8 @@
 	</div>
 	
 	<div class="t5">
-		<h4 class="t1">Lista di tipologie</h4>
+		<h4 class="h1">Lista di tipologie</h4>
+		<br></br>
 		<ul>
 			<li class="t1" th:each="tipologia : ${tipologie}"><a
 				href="tipologia.html"
@@ -20,7 +21,7 @@
 				th:text="|${tipologia.nome} ${tipologia.costo}|">qui-va-nome-costo</a>
 				
 				<div><div th:if="${session.role}=='ADMIN'">
-					 <a class="btn" th:href="@{'/admin/tipologia' + '/' + ${tipologia.id}}">elimina</a></div>
+					 <a class="btn" th:href="@{'/admin/tipologia' + '/' + ${tipologia.id}}"><button>elimina</button></a></div>
 				</div></li>
 		</ul>
 		<br>
