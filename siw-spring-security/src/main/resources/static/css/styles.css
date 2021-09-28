@@ -256,8 +256,19 @@ input:hover {
 	align-items: center;
 	margin-left: -20px;
 }
-
-.footer {
+footer {
+	font-family: "Montserrat", sans-serif;
+	font-weight: bolder;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(201, 204, 155);
+   color: rgb(114, 184, 184);
+   text-align: center;
+   
+}
+/* .footer {
 	position: fixed;
 	display: flex;
 	justify-content: flex-start;
@@ -270,7 +281,7 @@ input:hover {
 	background-color: #005a86;
 	text-align: center;
 	padding: 40px 10%;
-}
+} */
 
 /* .footer_links{ */
 /* 	list-style: none; */

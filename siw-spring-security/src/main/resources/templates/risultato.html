@@ -39,5 +39,14 @@
     		    <a class="btn" th:href="@{'/admin/risultato' + '/' + ${risultato.id}}"><button>elimina</button></a></div>
     	  </div>
     	</div>
+    		<div th:if="${session.role}=='ADMIN'">
+		<footer th:replace="fragments/baseadmin.html :: fondo"></footer>
+	</div>
+	<div th:unless="${session.role}=='ADMIN'">
+		<footer th:unless="${session.role}=='ADMIN'"
+			th:replace="fragments/base.html :: fondo"></footer>
+	</div>
+	
+    	
 </body>
 </html>
