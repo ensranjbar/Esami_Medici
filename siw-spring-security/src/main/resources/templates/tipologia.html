@@ -10,12 +10,12 @@
 	<div th:unless="${session.role}=='ADMIN'">
 		<header th:replace="fragments/base.html :: intestazione"></header>
 	</div>
-	<div>
+	<div class="t5">
 		<h4 class="t1"></h4>
-		 <div>
+		<!--  <div>
 		<img th:src="@{${tipologia.photosImagePath}}" width="120" height="168"
 			alt="">
-	</div> 
+	</div> --> 
 
 	<div class="t2" th:if="${tipologia}" th:object="${tipologia}">
 			<h6> Nome:<span th:text="*{nome}">qui-va-durata</span></h6>

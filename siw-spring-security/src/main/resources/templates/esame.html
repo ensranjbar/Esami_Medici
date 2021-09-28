@@ -56,9 +56,6 @@
             <a  th:href="@{'/admin/esame'+'/'+ *{id}+'/risultato'}" >Aggiungi un risultato</a></div>
 		</div>
 	
-	<div th:if="${session.role}=='ADMIN'">
-		<a  th:href="@{'/admin/risultato' + '/' + ${esame.id}}">inserisci</a>
-	</div>
 </div>
 
 

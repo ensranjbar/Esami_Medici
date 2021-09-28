@@ -6,7 +6,7 @@
 	<div>
 		<h4>Inserisci i dati di un prerequisito</h4>
 	</div>
-	<form th:action="@{/admin/prerequisito}" method="POST" th:object="${prerequisito}">
+	<form class="t5" th:action="@{/admin/prerequisito}" method="POST" th:object="${prerequisito}">
 		<div th:if="${#fields.hasGlobalErrors()}">
   			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 		</div>		

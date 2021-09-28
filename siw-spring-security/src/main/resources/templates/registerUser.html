@@ -8,7 +8,7 @@
 	<div th:unless="${session.role}=='ADMIN'">
 		<header th:replace="fragments/base.html :: intestazione"></header>
 	</div>
-	<div>
+	<div class="t5">
     	<h4 th:text="#{header.registra}">Registrazione</h4>
 	<form th:action="@{/admin/register}" method="POST">
     <table>

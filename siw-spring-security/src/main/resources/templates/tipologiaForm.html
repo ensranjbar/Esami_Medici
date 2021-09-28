@@ -6,7 +6,7 @@
 <body>
 	<header th:replace="fragments/baseadmin.html :: intestazione"></header>
 	<div class="container">
-		<div class="myform">
+		<div class="t5">
 			<div>
 				<h4 class="t1">Inserisci i dati di un tipologia di Esame</h4>
 			</div>
@@ -39,12 +39,12 @@
 								th:text="${prerequisito.nome}" th:value="${prerequisito.id}"
 								th:field="*{prerequisiti}" />
 						</div>
-						<div>
+					<!-- 	<div>
 
 							<label>Photos: </label> <input type="file" name="image"
 								accept="image/png, image/jpeg" />
 
-						</div>
+						</div> -->
 						<span><button type="submit">Invio</button></span>
 					</div>
 			</form>
