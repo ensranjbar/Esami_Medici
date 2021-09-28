@@ -6,7 +6,7 @@
 	<div class="container">
 			<div class="t5">
 	<div>
-		<h4 class="t1">Inserisci i dati di un paziente</h4>
+		<h4 class="login2">Inserisci i dati di un paziente</h4>
 	</div>
 	<form th:action="@{/admin/user}" method="POST" th:object="${user}">
 		<div th:if="${#fields.hasGlobalErrors()}">
@@ -14,12 +14,12 @@
 		</div>		
 		<div>
 			<div>
-				<span>Nome:</span>
+				<div class="login"><span>Nome:</span></div>
 				<span><input type="text" th:field="*{nome}" /></span>
 				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
 			</div>		
 			<div>
-				<span>Cognome:</span>
+				<div class="login"><span>Cognome:</span></div>
 				<span><input type="text" th:field="*{cognome}" /></span>
 				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
 			</div>

@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="t5">
 			<div>
-				<h4 class="t1">Inserisci i dati di un tipologia di Esame</h4>
+				<h4 class="login2">Inserisci i dati di un tipologia di Esame</h4>
 			</div>
 			<form th:action="@{/admin/tipologieSave}" method="POST"
 				th:object="${tipologia}" enctype="multipart/form-data">
@@ -17,24 +17,24 @@
 				</div>
 				<div>
 					<div>
-						<span>Nome:</span> <span><input type="text"
+						<div class="login"><span>Nome:</span></div> <span><input type="text"
 							th:field="*{nome}" /></span> <span th:if="${#fields.hasErrors('nome')}"
 							th:errors="*{nome}"></span>
 					</div>
 					<div>
-						<span>Descrizione:</span> <span><input type="text"
+						<div class="login"><span>Descrizione:</span> </div><span><input type="text"
 							th:field="*{descrizione}" /></span> <span
 							th:if="${#fields.hasErrors('descrizione')}"
 							th:errors="*{descrizione}"></span>
 					</div>
 					<div>
-						<span>Costo:</span> <span><input type="text"
+						<div class="login"><span>Costo:</span></div> <span><input type="text"
 							th:field="*{costo}" /></span> <span
 							th:if="${#fields.hasErrors('costo')}" th:errors="*{costo}"></span>
 
 
 						<div>
-							<span>Prerequisiti: </span> <input type="checkbox" name="roles"
+							<div class="login"><span>Prerequisiti: </span> </div><input type="checkbox" name="roles"
 								th:each="prerequisito : ${prerequisiti}"
 								th:text="${prerequisito.nome}" th:value="${prerequisito.id}"
 								th:field="*{prerequisiti}" />
