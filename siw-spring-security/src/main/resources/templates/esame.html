@@ -49,7 +49,7 @@
 		</div>
 		<div th:unless="${esame}">Non esiste</div>
 		<div th:if="${session.role}=='ADMIN'">
-				<a  th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a>
+				<a  th:href="@{'/admin/esame' + '/' + ${esame.id}}"><button>elimina</button></a>
 		</div>
 		<div th:if="${session.role}=='ADMIN'">
 			<div th:object="${esame}" method="GET">
