@@ -10,34 +10,43 @@
 	<div th:unless="${session.role}=='ADMIN'">
 		<header th:replace="fragments/base.html :: intestazione"></header>
 	</div>
-	<div class="t5">
-		<h4 class="t1"></h4>
-		<div>
-			<img th:src="@{${medico.photosImagePath}}" width="120" height="168"
-				alt="">
-		</div>
-
-		<div class="t2" th:if="${medico}" th:object="${medico}">
-			<span th:text="*{nome}">qui-va-nome</span> <span th:text="*{cognome}">qui-va-cognome</span>
-			<span th:text="*{specializzazione}">qui-va-specializzazione</span>
-			<div th:if="${session.role}=='ADMIN'">
-				<li th:each="esame : ${esami}"><a href="esame.html"
-					th:href="@{'/esame' + '/' + ${esame.id}}" th:text="${esame.codice}"></a>
-					<div>
-						<br> <br>
-					</div></li>
-			</div>
-		</div>
-		<ul>
-
-		</ul>
-		<div th:unless="${medico}">Non esiste</div>
-
-		<div th:if="${session.role}=='ADMIN'">
-			<a class="button" th:href="@{'/admin/medico' + '/' + ${medico.id}}"><button>elimina</button></a>
-		</div>
-
+<div class="t5">
+	<h4 class="t1"></h4>
+	<div >
+		<img th:src="@{${medico.photosImagePath}}" width="120" height="168"
+			alt="">
 	</div>
+
+	<div class="t2" th:if="${medico}" th:object="${medico}">
+		<span th:text="*{nome}">qui-va-nome</span> <span th:text="*{cognome}">qui-va-cognome</span>
+		<span th:text="*{specializzazione}">qui-va-specializzazione</span>
+		 <div th:if="${session.role}=='ADMIN'">
+		 <li th:each="esame : ${esami}"><a href="esame.html"
+			th:href="@{'/esame' + '/' + ${esame.id}}" th:text="${esame.codice}"></a>
+			<div>
+				<br> <br>
+			</div></li>
+		 </div>
+	</div>
+	<ul>
+
+	</ul>
+	<div th:unless="${medico}">Non esiste</div>
+	<!-- <div th:if="${session.role}=='ADMIN'">
+		<form action="#" th:object="${medico}"
+			th:action="@{/admin/medico/{id}(id=${medico.id})}">
+			<input type="hidden" name="_method" value="delete">
+			<button type="submit" id="submitButton">Aggiorna i dati</button>
+		</form>
+	</div> -->
+	<div th:if="${session.role}=='ADMIN'">
+		<a class="button" th:href="@{'/admin/medico' + '/' + ${medico.id}}">elimina</a>
+	</div>
+	<!-- </div> -->
+	<!--  </div> -->
+	<!-- <div th:unless="${#authorization.expression('isAuthenticated()')}"> </div> -->
+	<!--  <div th:unless="${user.role}=='ADMIN'"> </div> -->
+</div>
 	<footer th:replace="fragments/base.html :: fondo"></footer>
 </body>
 </html>

@@ -31,11 +31,11 @@
 		<!-- 	<span th:text="*{prerequisiti}">qui-va-corso</span> -->
    		</div>
 		<div th:unless="${tipologia}">Non esiste</div>
-		
+		<!-- <div th:if="${#authorization.expression('isAuthenticated()')}">  -->
 		<div>
 			<div th:if="${session.role}=='ADMIN'">
 				<a class="btn"
-					th:href="@{'/admin/tipologia' + '/' + ${tipologia.id}}"><button>elimina</button></a>
+					th:href="@{'/admin/tipologia' + '/' + ${tipologia.id}}">elimina</a>
 			</div>
 		</div>
 	</div>

@@ -18,7 +18,7 @@
 				   th:href="@{'/esame' + '/' + ${esame.id}}" 
 				   th:text="|${esame.codice}  ${esame.dataPrenotazione}">qui-vanno-date-tipologia</a>
 				   	<div>
-    		<a  th:href="@{'/admin/esame' + '/' + ${esame.id}}"><button>elimina</button></a>
+    		<a class="cta" th:href="@{'/admin/esame' + '/' + ${esame.id}}">elimina</a>
     	  </div>
 			</li>
 		</ul>

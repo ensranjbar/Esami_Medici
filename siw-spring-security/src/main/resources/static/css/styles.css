@@ -41,7 +41,7 @@ button, input {
 }
 
 a:hover {
-	
+	background-color: rgba(242, 247, 242, 0.8);
 	color: rgb(0, 0, 0);
 }
 
@@ -78,7 +78,7 @@ header {
 button {
 	padding: 9px 25px;
 	background-color: rgb(44, 41, 54);
-	margin: 0.3em;
+	margin: 0.7em;
 	border: none;
 	border-radius: 50px;
 	cursor: pointer;
