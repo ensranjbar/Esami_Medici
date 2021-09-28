@@ -58,6 +58,7 @@
 	
 </div>
 
+<footer th:unless="${session.role}=='ADMIN'" th:replace="fragments/base.html :: fondo"></footer>
 
 </body>
 </html>

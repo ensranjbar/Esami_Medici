@@ -8,9 +8,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
 	<header th:fragment="intestazione">
-		<img src="../images/index2.png" alt="" height="70" width="300">
+		<img src="../images/_Logo (3)_.png" alt="" height="50" width="150">
 		<nav>
 			<ul class="nav__links">
 				<li><a href="index" th:href="@{/index}">Home</a></li>
@@ -21,7 +22,6 @@
 			</ul>
 		</nav>
 
-		<a  th:href="@{/contatti}"><button>Contatti</button></a>
 
 	</header>
 
@@ -31,12 +31,7 @@
 	</aside>
 	<div class="another">This is another sidebar</div>
 
-	<footer th:fragment="fondo"></footer>
-	<!-- 	<div class="footer">  -->
-	<!-- 	<ul > -->
-	<!-- 	<li class="footer_links"><a href="index" th:href="@{/index}">Home</a></li> -->
-	<!-- 	<li class="footer_links"><a href="immagini" th:href="@{/immagine}">immagini</a></li> -->
-	<!-- 	</ul> -->
-	<!-- 	</div> -->
+	<footer  th:fragment="fondo"> INDRIZZO:Universita Roma3 <br></br> TELEFONO:06-8888  <br></br>  EMAIL:mnc_clinica@gmail.com </footer>
+	                             
 </body>
 </html>

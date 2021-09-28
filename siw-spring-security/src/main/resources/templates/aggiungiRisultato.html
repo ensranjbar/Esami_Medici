@@ -22,7 +22,7 @@
 				</div> -->
 				<div>
 					<div>
-						<span>Descrizione:</span><textarea th:field="*{risultatoDescrizione}"></textarea>
+						<div class="login"><span>Descrizione:</span></div><textarea th:field="*{risultatoDescrizione}"></textarea>
 						<span th:if="${#fields.hasErrors('risultatoDescrizione')}"
 							th:errors="*{risultatoDescrizione}"></span>
 					</div>
