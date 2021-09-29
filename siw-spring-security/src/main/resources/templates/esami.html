@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{header.esami})"> </head>
+<head th:replace="fragments/base.html :: headerfiles(title='CLINICA MNC/esami')"> </head>
 <body>
 
 		<div th:if="${session.role}=='ADMIN'">
@@ -19,7 +19,9 @@
 				   th:href="@{'/esame' + '/' + ${esame.id}}" 
 				   th:text="|${esame.codice}  ${esame.dataPrenotazione}">qui-vanno-date-tipologia</a>
 				   	<div>
+				   	<div th:if="${session.role}=='ADMIN'">
     		<a class="cta" th:href="@{'/admin/esame' + '/' + ${esame.id}}"><button>elimina</button></a>
+    		</div>
     	  </div>
 			</li>
 		</ul>

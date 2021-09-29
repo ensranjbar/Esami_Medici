@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head
-	th:replace="fragments/baseadmin.html :: headerfiles(title=#{header.medici})">
-</head>
+<head th:replace="fragments/base.html :: headerfiles(title='CLINICA MNC/medici')"> </head>
 <body>
 	<div th:if="${session.role}=='ADMIN'">
 		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
@@ -12,7 +10,7 @@
 	</div>
 
 	<div class= "t5">
-		<h4 class="h1">medici</h4>
+		<h4 class="h1">Lista di Medici</h4>
 		<br></br>
 		<ul>
 			<li  th:each="medico : ${medici}"><a
