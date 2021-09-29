@@ -11,9 +11,9 @@
 <div class="t5">
 	<h4 class="t1"></h4>
 
-	<div class="t2" th:if="${prerequisito}" th:object="${prerequisito}">
-		<span th:text="*{nome}">qui-va-nome</span> 
-		<span th:text="*{valore}">qui-va-valore</span>
+	<div class="t1" th:if="${prerequisito}" th:object="${prerequisito}">
+	<	<span th:text="*{nome}">qui-va-nome</span> ,
+		<span th:text="*{valore}">qui-va-valore</span>>
 	</div>
 
 	<div th:unless="${prerequisito}">Non esiste</div>
