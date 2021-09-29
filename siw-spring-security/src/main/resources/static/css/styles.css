@@ -260,6 +260,7 @@ footer {
 	font-family: "Montserrat", sans-serif;
 	font-weight: bolder;
    position: fixed;
+   margin: 0.9em;
    left: 0;
    bottom: 0;
    width: 100%;

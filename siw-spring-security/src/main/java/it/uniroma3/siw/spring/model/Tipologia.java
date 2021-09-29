@@ -3,6 +3,7 @@ package it.uniroma3.siw.spring.model;
 import java.beans.Transient;
 import java.util.List;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +39,8 @@ public class Tipologia {
 	 * return "/tipologia-photos/" + id + "/" + photos; }
 	 */
 
-	@OneToMany(mappedBy = "tipologia", cascade = { CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST })
+	@OneToMany(mappedBy = "tipologia", cascade =  CascadeType.REMOVE)
+
 	private List<Esame> esami;
 
 	/*

@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 
 import lombok.Data;
 
+
 @Data
 @Entity
 public class Medico {
@@ -39,7 +40,7 @@ public class Medico {
 		return "/medico-photos/" + id + "/" + photos;
 	}
 
-	@OneToMany(mappedBy = "medico", cascade = { CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST })
+	@OneToMany(mappedBy = "medico", cascade = CascadeType.REMOVE)
 	private List<Esame> esami;
 
 	@Override
