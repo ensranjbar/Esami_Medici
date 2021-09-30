@@ -48,7 +48,7 @@ public class TipologiaController {
 	@RequestMapping(value = "/tipologia/{id}", method = RequestMethod.GET)
 	public String getTipologia(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("tipologia", this.tipologiaService.tipologiaPerId(id));
-		model.addAttribute("prerequisiti",this.tipologiaService.getPrerequisitoService().tutti());
+		model.addAttribute("prerequisiti",this.tipologiaService.getPrerequisitoService().getPrerequisitiTipologia(id));
 	//	model.addAttribute("role", this.tipologiaService.getCredentialsService().getRoleAuthenticated());
 		return "tipologia";
 	}

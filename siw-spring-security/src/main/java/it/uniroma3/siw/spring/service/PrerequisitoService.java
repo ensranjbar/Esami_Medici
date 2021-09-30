@@ -67,4 +67,8 @@ public class PrerequisitoService {
 		}
 		
 	}
+	@Transactional
+	public List<Prerequisito> getPrerequisitiTipologia(Long id) {
+		return (List<Prerequisito>) this.prerequisitoRepository.findPrerequisitiByTipologia(id);
+	}
 }
